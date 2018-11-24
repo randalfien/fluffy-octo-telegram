@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -11,15 +9,10 @@ public class EnemySpawner : MonoBehaviour
 
 	private float _timeSinceLast; 
 	
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
 	// Update is called once per frame
 	void Update ()
 	{
-		_timeSinceLast += Time.deltaTime;
+		_timeSinceLast += Mathf.Min(Time.deltaTime,0.1f);
 		if (_timeSinceLast > EnemyTimeDelay)
 		{
 			AddEnemy();
@@ -30,6 +23,6 @@ public class EnemySpawner : MonoBehaviour
 	private void AddEnemy()
 	{
 		var enemy = Instantiate(EnemyPrefab, transform.parent);
-		enemy.transform.localPosition = new Vector3(transform.localPosition.x, Random.Range(-47f,47f), 0);
+		enemy.transform.localPosition = new Vector3(transform.localPosition.x, Random.Range(-47f,38f), 0);
 	}
 }

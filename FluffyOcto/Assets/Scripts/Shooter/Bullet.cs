@@ -15,8 +15,8 @@ public class Bullet : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		transform.position += _dirVector * Time.deltaTime;
-		_timer += Time.deltaTime;
+		transform.position += _dirVector *  Mathf.Min(Time.deltaTime,0.1f);;
+		_timer +=  Mathf.Min(Time.deltaTime,0.1f);;
 		if (_timer > 1.5f)
 		{
 			Destroy(gameObject);

@@ -15,7 +15,7 @@ public class ShowHideObjectTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        ObjectToShow.SetActive(!HideOnTrigger);
+        ObjectToShow.GetComponent<SpriteRenderer>().enabled = !HideOnTrigger;
     }
 
 }

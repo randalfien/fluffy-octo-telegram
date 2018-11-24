@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class hero_script : MonoBehaviour {
+public class PlatformerHero : MonoBehaviour {
 
 	public enum inputState 
 	{ 

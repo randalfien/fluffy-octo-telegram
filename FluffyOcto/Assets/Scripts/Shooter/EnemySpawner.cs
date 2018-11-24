@@ -23,6 +23,6 @@ public class EnemySpawner : MonoBehaviour
 	private void AddEnemy()
 	{
 		var enemy = Instantiate(EnemyPrefab, transform.parent);
-		enemy.transform.localPosition = new Vector3(transform.localPosition.x, Random.Range(-47f,38f), 0);
+		enemy.transform.localPosition = new Vector3(transform.localPosition.x, Random.Range(-49f,35f), 0);
 	}
 }

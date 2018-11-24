@@ -76,7 +76,6 @@ public class PlatformerHero : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-	    int spriteFrame = 0; 
 		// run left
 		if( currentInputState ==  inputState.WalkLeft &&  Grounded == true && currentAnim != anim.WalkLeft)
 		{
@@ -91,7 +90,6 @@ public class PlatformerHero : MonoBehaviour {
 		{
 			currentAnim = anim.StandLeft;
 //			_animator.SetInteger(_animState, 0);
-			_walkAnimProgress = 0;
 			_renderer.flipX = true;
 		}
 		
@@ -105,7 +103,6 @@ public class PlatformerHero : MonoBehaviour {
 	    if (Grounded && (currentInputState == inputState.WalkRight || currentInputState == inputState.WalkLeft))
 	    {
 		    _walkAnimProgress += Time.deltaTime*FramesPerSecond;
-		    spriteFrame = Mathf.FloorToInt(_walkAnimProgress) % WalkSprites.Length;
 	    }
 		
 		// stand right
@@ -113,7 +110,6 @@ public class PlatformerHero : MonoBehaviour {
 		{
 			currentAnim = anim.StandRight;
 	//		_animator.SetInteger(_animState, 0);
-			_walkAnimProgress = 0;
 			_renderer.flipX = false;
 		}
 		
@@ -132,8 +128,9 @@ public class PlatformerHero : MonoBehaviour {
 //			_animator.SetInteger(_animState, 2);
 			_renderer.flipX = false;
 		}
-	    
-	    _renderer.sprite = WalkSprites[spriteFrame];
+
+        int spriteFrame = Mathf.FloorToInt(_walkAnimProgress) % WalkSprites.Length;
+        _renderer.sprite = WalkSprites[spriteFrame];
 	}
 
     public void FixedUpdate()

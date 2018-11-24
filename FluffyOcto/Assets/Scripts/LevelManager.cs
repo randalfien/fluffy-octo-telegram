@@ -14,17 +14,26 @@ public class LevelManager : MonoBehaviour
 
 	public Camera RealCamera;
 	public Camera UnrealCamera;
+
+	private RealityScheduler _scheduler;
 	
 	private void Start()
 	{
 		/*	RealityOffRoot.SetActive(false);
 			RealityOnRoot.SetActive(true);*/
 		Toggle.OnToggled.AddListener(ToggleReality);
+		_scheduler = GetComponent<RealityScheduler>();
+		if (_scheduler)
+		{
+			_scheduler.VisibleLayer = LayerMask.NameToLayer("Scene Unreal");
+		}
 		SetCameras(false);
 	}
 
 	private void SetCameras(bool realOn)
 	{
+		
+		
 		RealityOffRoot.SetActive(!realOn);
 		RealityOnRoot.SetActive(realOn);
 		
@@ -69,6 +78,10 @@ public class LevelManager : MonoBehaviour
 	{
 		bool realOn = Toggle.Toggled;
 		Toggle.gameObject.SetActive( false );
+		if (_scheduler)
+		{
+			_scheduler.VisibleLayer = LayerMask.NameToLayer(realOn ? "Scene Real" : "Scene Unreal");
+		}
 		SetReal(realOn);
 	}
 }

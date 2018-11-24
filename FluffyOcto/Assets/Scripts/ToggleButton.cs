@@ -24,4 +24,12 @@ public class ToggleButton : MonoBehaviour
 	{
 		_shouldSwitch = b;
 	}
+
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			OnMouseDown();
+		}
+	}
 }

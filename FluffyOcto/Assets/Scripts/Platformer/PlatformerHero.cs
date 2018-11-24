@@ -11,8 +11,17 @@ public class PlatformerHero : MonoBehaviour {
 		Jump
 	}
 
-	[HideInInspector] 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Dirty hack, should  check whether standing instead
+        jumpedSinceGrounded = false;
+    }
+
+    [HideInInspector] 
 	public inputState currentInputState;
+
+    public bool MultiJump = true;
+    private bool jumpedSinceGrounded = false;
 	
 	[HideInInspector] 
 	public enum facing { Right, Left }
@@ -69,9 +78,9 @@ public class PlatformerHero : MonoBehaviour {
 //		_animState = _p1AnimState;
 	}
 
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		// run left
 		if( currentInputState ==  inputState.WalkLeft &&  Grounded == true && currentAnim != anim.WalkLeft)
 		{
@@ -121,62 +130,73 @@ public class PlatformerHero : MonoBehaviour {
 		}
 	}
 
-	public void FixedUpdate()
-	{
-		// inputstate is none unless one of the movement keys are pressed
-		currentInputState = inputState.None;
-		
-		// move left
-		if( Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) 
-		{ 
-			currentInputState = inputState.WalkLeft;
-			facingDir = facing.Left;
-		}
-		
-		// move right
-		if ( (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) ) && currentInputState != inputState.WalkLeft) 
-		{ 
-			currentInputState = inputState.WalkRight;
-			facingDir = facing.Right;
-		}
-		
-		// jump
-		if ( Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) ) 
-		{ 
-			currentInputState = inputState.Jump;
-		}
+    public void FixedUpdate()
+    {
+        // inputstate is none unless one of the movement keys are pressed
+        currentInputState = inputState.None;
 
-		physVel = Vector2.zero;
-		
-		// move left
-		if( currentInputState == inputState.WalkLeft)
-		{
-			physVel.x = -RunVel;
-		}
-		
-		// move right
-		if( currentInputState == inputState.WalkRight)
-		{
-			physVel.x = RunVel;
-		}
-		
-		// jump
-		if( currentInputState == inputState.Jump)
-		{
-			_rigidbody.velocity = new Vector2(physVel.x, JumpVel);
-		}
+        // move left
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            currentInputState = inputState.WalkLeft;
+            facingDir = facing.Left;
+        }
 
-		// use raycasts to determine if the player is standing on the ground or not
-		if (   Physics2D.Raycast(new Vector2(_transform.position.x-0.1f,_transform.position.y), -Vector2.up, .5f, GroundMask) 
-		    || Physics2D.Raycast(new Vector2(_transform.position.x+0.1f,_transform.position.y), -Vector2.up, .5f, GroundMask) )
-		{
-			Grounded = true;
-		}
-		else
-		{
-			Grounded = false;
-			_rigidbody.AddForce(-Vector3.up * FallVel);
-		}
+        // move right
+        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && currentInputState != inputState.WalkLeft)
+        {
+            currentInputState = inputState.WalkRight;
+            facingDir = facing.Right;
+        }
+
+        // jump
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            if(MultiJump || !jumpedSinceGrounded)
+            {
+                currentInputState = inputState.Jump;
+                jumpedSinceGrounded = true;
+
+            }
+        }
+
+        physVel = Vector2.zero;
+
+        // move left
+        if (currentInputState == inputState.WalkLeft)
+        {
+            physVel.x = -RunVel;
+        }
+
+        // move right
+        if (currentInputState == inputState.WalkRight)
+        {
+            physVel.x = RunVel;
+        }
+
+        // jump
+        if (currentInputState == inputState.Jump)
+        {
+            _rigidbody.velocity = new Vector2(physVel.x, JumpVel);
+        }
+
+        // use raycasts to determine if the player is standing on the ground or not
+        if (Physics2D.Raycast(new Vector2(_transform.position.x - 0.1f, _transform.position.y), -Vector2.up, .5f, GroundMask).collider != null
+            || Physics2D.Raycast(new Vector2(_transform.position.x + 0.1f, _transform.position.y), -Vector2.up, .5f, GroundMask).collider != null)
+        {
+            // Doesn't work properly (not sure why, something to do with layers)
+            Grounded = true;
+        }
+        else
+        {
+            Grounded = false;
+            _rigidbody.AddForce(-Vector3.up * FallVel);
+        }
+
+        if (Grounded)
+        {
+            jumpedSinceGrounded = false;
+        }
 		
 		// actually move the player
 		_rigidbody.velocity = new Vector2(physVel.x, _rigidbody.velocity.y);

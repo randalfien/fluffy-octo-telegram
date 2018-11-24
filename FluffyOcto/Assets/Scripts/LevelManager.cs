@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public bool DefaultReal = true;
 
 	public GameObject RealityOnRoot;
 	
@@ -17,10 +18,8 @@ public class LevelManager : MonoBehaviour
 	
 	private void Start()
 	{
-	/*	RealityOffRoot.SetActive(false);
-		RealityOnRoot.SetActive(true);*/
 		Toggle.OnToggled.AddListener(ToggleReality);
-		SetCameras(false);
+		SetCameras(DefaultReal);
 	}
 
 	private void SetCameras(bool realOn)

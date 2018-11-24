@@ -22,38 +22,38 @@ public class PlayerShooter : MonoBehaviour
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-		if (Input.GetKey(KeyCode.UpArrow))
-		{
-			_angle+= RotationSpeed;
-			if (_angle > AngleMax)
-			{
-				_angle = AngleMax;
-			}
-			GunPivot.transform.localRotation = Quaternion.Euler(0,0,_angle);
-		}
-		
-		if (Input.GetKey(KeyCode.DownArrow))
-		{
-			_angle-= RotationSpeed;
-			if (_angle < AngleMin)
-			{
-				_angle = AngleMin;
-			}
-			GunPivot.transform.localRotation = Quaternion.Euler(0,0,_angle);
-		}
 
-		if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl) )
-		{
-			if (Time.time - _timeLast > ShootTimeMin)
-			{
-				Shoot();
-			}
-		}
-	}
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            _angle += RotationSpeed;
+            if (_angle > AngleMax)
+            {
+                _angle = AngleMax;
+            }
+            GunPivot.transform.localRotation = Quaternion.Euler(0, 0, _angle);
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            _angle -= RotationSpeed;
+            if (_angle < AngleMin)
+            {
+                _angle = AngleMin;
+            }
+            GunPivot.transform.localRotation = Quaternion.Euler(0, 0, _angle);
+        }
+
+
+        if (Time.time - _timeLast > ShootTimeMin)
+        {
+            Shoot();
+        }
+
+    }
 
 	private void Shoot()
 	{

@@ -13,11 +13,14 @@ public class ArmyMessage : MonoBehaviour
 	{
 		var text = GetComponent<TextMeshPro>(); 
 		text.color = Color.clear;
-		text.DOFade(1, 0.1f).SetDelay(Delay);
-		Invoke(nameof(Rem),Delay+Duration);
+		FindObjectOfType<RealityScheduler>().ScheduleMe(StartMsg, Delay, gameObject.layer);
+		FindObjectOfType<RealityScheduler>().ScheduleMe(Rem, Delay+Duration, gameObject.layer);
 	}
 	
-	// Update is called once per frame
+	void StartMsg () {
+		var text = GetComponent<TextMeshPro>();
+		text.DOFade(1, 0.1f);
+	}
 	void Rem () {
 		Destroy(gameObject);
 	}

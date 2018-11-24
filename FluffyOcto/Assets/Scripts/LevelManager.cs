@@ -5,16 +5,19 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
 
+    public bool DefaultReal = true;
+
 	public GameObject RealityOnRoot;
 	
 	public GameObject RealityOffRoot;
 	public ToggleButton Toggle;
-	private void Start()
-	{
-		RealityOffRoot.SetActive(false);
-		RealityOnRoot.SetActive(true);
-		Toggle.OnToggled.AddListener(ToggleReality);
-	}
+    private void Start()
+    {
+        RealityOffRoot.SetActive(!DefaultReal);
+        RealityOnRoot.SetActive(DefaultReal);
+
+        Toggle.OnToggled.AddListener(ToggleReality);
+    }
 	
 	private void ToggleReality()
 	{

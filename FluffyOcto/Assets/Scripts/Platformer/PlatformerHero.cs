@@ -10,9 +10,6 @@ public class PlatformerHero : MonoBehaviour {
 		WalkRight, 
 		Jump
 	}
-
-
-
     [HideInInspector] 
 	public inputState currentInputState;
 
@@ -65,12 +62,6 @@ public class PlatformerHero : MonoBehaviour {
 	private float _walkAnimProgress = 0;
 	public int FramesPerSecond = 12;
 	private SpriteRenderer _renderer;
-
-	/*private void OnCollisionEnter2D(Collision2D collision)
-	{
-		// Dirty hack, should  check whether standing instead
-		jumpedSinceGrounded = false;
-	}*/
 	
 	public void Awake()
 	{
@@ -200,12 +191,10 @@ public class PlatformerHero : MonoBehaviour {
             || Physics2D.Raycast(new Vector2(_transform.position.x + 0.1f, _transform.position.y-5f), Vector2.down, 8f, GroundMask).collider != null)
         {
             // Doesn't work properly (not sure why, something to do with layers)
-	        print("GROUNDED");
             Grounded = true;
         }
         else
         {
-	        print("NOT GROUNDED");
             Grounded = false;
             _rigidbody.AddForce(-Vector3.up * FallVel);
         }

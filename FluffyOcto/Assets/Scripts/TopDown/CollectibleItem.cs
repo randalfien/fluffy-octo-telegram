@@ -3,8 +3,12 @@
 public class CollectibleItem : MonoBehaviour
 {
 	public GameObject TextObject;
+
 	public GameObject NextItem;
 	public GameObject ClosestThis;
+
+    public float NextItemDistance = 150f;
+
 	[HideInInspector] public Color OrigClosestThisColor;
 	private void Start()
 	{
@@ -15,4 +19,5 @@ public class CollectibleItem : MonoBehaviour
 			OrigClosestThisColor = ClosestThis.GetComponent<SpriteRenderer>().color;
 		}
 	}
+
 }

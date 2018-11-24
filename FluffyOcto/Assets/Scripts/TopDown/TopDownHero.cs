@@ -77,10 +77,14 @@ public class TopDownHero : MonoBehaviour
 			var nextItem = collectible.NextItem;
 			if (nextItem != null)
 			{
-				Horizont.transform.DOLocalMoveY(nextItem.transform.localPosition.y + 150f, 1f);
+				Horizont.transform.DOLocalMoveY(nextItem.transform.localPosition.y + collectible.NextItemDistance, 1f);
 			}
+            else
+            {
+                Horizont.transform.DOLocalMoveY(Horizont.transform.localPosition.y + collectible.NextItemDistance, 1f);
+            }
 
-			if (collectible.ClosestThis != null)
+            if (collectible.ClosestThis != null)
 			{
 				collectible.ClosestThis.SetActive(true);
 				var closingSprite = collectible.ClosestThis.GetComponent<SpriteRenderer>();

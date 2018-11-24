@@ -683,10 +683,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 160409393}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 160dba156f1e05d4e9b56767ae2503fd, type: 3}
+  m_Script: {fileID: 11500000, guid: f6eefdee3065d9c4ebd34e293711bca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectToShow: {fileID: 501902379}
+  HideOnTrigger: 1
 --- !u!114 &160409396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,10 +906,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 251552333}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 160dba156f1e05d4e9b56767ae2503fd, type: 3}
+  m_Script: {fileID: 11500000, guid: f6eefdee3065d9c4ebd34e293711bca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectToShow: {fileID: 1663558150}
+  HideOnTrigger: 1
 --- !u!114 &251552336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1107,7 +1109,7 @@ GameObject:
   - component: {fileID: 294659116}
   - component: {fileID: 294659114}
   m_Layer: 0
-  m_Name: bossText (1)
+  m_Name: pickupText1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1597,10 +1599,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 384115078}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 160dba156f1e05d4e9b56767ae2503fd, type: 3}
+  m_Script: {fileID: 11500000, guid: f6eefdee3065d9c4ebd34e293711bca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectToShow: {fileID: 948757886}
+  HideOnTrigger: 1
 --- !u!114 &384115081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2348,7 +2351,7 @@ GameObject:
   - component: {fileID: 501902381}
   - component: {fileID: 501902380}
   m_Layer: 0
-  m_Name: bossText (1)
+  m_Name: pickupText5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4337,7 +4340,7 @@ GameObject:
   - component: {fileID: 948757888}
   - component: {fileID: 948757887}
   m_Layer: 0
-  m_Name: bossText (1)
+  m_Name: pickupText2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4567,10 +4570,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1004771405}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 160dba156f1e05d4e9b56767ae2503fd, type: 3}
+  m_Script: {fileID: 11500000, guid: f6eefdee3065d9c4ebd34e293711bca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectToShow: {fileID: 1687895386}
+  HideOnTrigger: 1
 --- !u!114 &1004771408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4690,7 +4694,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 515.6, y: 10.7}
+  m_AnchoredPosition: {x: 524.2, y: 7.3}
   m_SizeDelta: {x: 50.59, y: 21.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1039137113
@@ -7367,7 +7371,7 @@ GameObject:
   - component: {fileID: 1615570804}
   - component: {fileID: 1615570803}
   - component: {fileID: 1615570802}
-  - component: {fileID: 1615570805}
+  - component: {fileID: 1615570806}
   m_Layer: 0
   m_Name: pen
   m_TagString: Untagged
@@ -7472,7 +7476,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1615570805
+--- !u!114 &1615570806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7480,10 +7484,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1615570800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 160dba156f1e05d4e9b56767ae2503fd, type: 3}
+  m_Script: {fileID: 11500000, guid: f6eefdee3065d9c4ebd34e293711bca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectToShow: {fileID: 294659112}
+  HideOnTrigger: 0
 --- !u!1 &1624525628
 GameObject:
   m_ObjectHideFlags: 0
@@ -7668,7 +7673,7 @@ GameObject:
   - component: {fileID: 1663558152}
   - component: {fileID: 1663558151}
   m_Layer: 8
-  m_Name: bossText (1)
+  m_Name: realPickupText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7871,7 +7876,7 @@ GameObject:
   - component: {fileID: 1687895388}
   - component: {fileID: 1687895387}
   m_Layer: 0
-  m_Name: bossText (1)
+  m_Name: pickupText3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8698,7 +8703,7 @@ GameObject:
   - component: {fileID: 1956189321}
   - component: {fileID: 1956189320}
   m_Layer: 0
-  m_Name: bossText (1)
+  m_Name: pickupText4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9426,10 +9431,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2052567058}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 160dba156f1e05d4e9b56767ae2503fd, type: 3}
+  m_Script: {fileID: 11500000, guid: f6eefdee3065d9c4ebd34e293711bca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectToShow: {fileID: 1956189319}
+  HideOnTrigger: 1
 --- !u!114 &2052567061
 MonoBehaviour:
   m_ObjectHideFlags: 0

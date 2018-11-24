@@ -11,11 +11,7 @@ public class PlatformerHero : MonoBehaviour {
 		Jump
 	}
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Dirty hack, should  check whether standing instead
-        jumpedSinceGrounded = false;
-    }
+
 
     [HideInInspector] 
 	public inputState currentInputState;
@@ -65,28 +61,38 @@ public class PlatformerHero : MonoBehaviour {
 	private int _animState;
 	private anim currentAnim;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+	public Sprite[] WalkSprites;
+	private float _walkAnimProgress = 0;
+	public int FramesPerSecond = 12;
+	private SpriteRenderer _renderer;
 
+	/*private void OnCollisionEnter2D(Collision2D collision)
+	{
+		// Dirty hack, should  check whether standing instead
+		jumpedSinceGrounded = false;
+	}*/
+	
 	public void Awake()
 	{
 		_transform = transform;
 		_rigidbody = GetComponent<Rigidbody2D>();
+		_renderer = GetComponent<SpriteRenderer>();
 //		_animator = this.GetComponent<Animator>();
 //		_animState = _p1AnimState;
 	}
 
 
     // Update is called once per frame
-    void Update () {
+    void Update ()
+    {
+	    int spriteFrame = 0; 
 		// run left
 		if( currentInputState ==  inputState.WalkLeft &&  Grounded == true && currentAnim != anim.WalkLeft)
 		{
 			currentAnim = anim.WalkLeft;
 //			_animator.SetInteger(_animState, 1);
-			_transform.localScale = new Vector3(1,1,1);
+			_walkAnimProgress += Time.deltaTime*100;
+			_renderer.flipX = true;
 		}
 		
 		// stand left
@@ -94,7 +100,8 @@ public class PlatformerHero : MonoBehaviour {
 		{
 			currentAnim = anim.StandLeft;
 //			_animator.SetInteger(_animState, 0);
-			_transform.localScale = new Vector3(-1,1,1);
+			_walkAnimProgress = 0;
+			_renderer.flipX = true;
 		}
 		
 		// run right
@@ -102,15 +109,21 @@ public class PlatformerHero : MonoBehaviour {
 		{
 			currentAnim = anim.WalkRight;
 //			_animator.SetInteger(_animState, 1);
-			_transform.localScale = new Vector3(1,1,1);
+			_renderer.flipX = false;
 		}
+	    if (Grounded && (currentInputState == inputState.WalkRight || currentInputState == inputState.WalkLeft))
+	    {
+		    _walkAnimProgress += Time.deltaTime*FramesPerSecond;
+		    spriteFrame = Mathf.FloorToInt(_walkAnimProgress) % WalkSprites.Length;
+	    }
 		
 		// stand right
 		if( currentInputState !=  inputState.WalkRight &&  Grounded == true && currentAnim != anim.StandRight &&  facingDir ==  facing.Right)
 		{
 			currentAnim = anim.StandRight;
 	//		_animator.SetInteger(_animState, 0);
-			_transform.localScale = new Vector3(1,1,1);
+			_walkAnimProgress = 0;
+			_renderer.flipX = false;
 		}
 		
 		// fall or jump left
@@ -118,7 +131,7 @@ public class PlatformerHero : MonoBehaviour {
 		{
 			currentAnim = anim.FallLeft;
 	//		_animator.SetInteger(_animState, 2);
-			_transform.localScale = new Vector3(-1,1,1);
+			_renderer.flipX = true;
 		}
 		
 		// fall or jump right
@@ -126,8 +139,10 @@ public class PlatformerHero : MonoBehaviour {
 		{
 			currentAnim = anim.FallRight;
 //			_animator.SetInteger(_animState, 2);
-			_transform.localScale = new Vector3(1,1,1);
+			_renderer.flipX = false;
 		}
+	    
+	    _renderer.sprite = WalkSprites[spriteFrame];
 	}
 
     public void FixedUpdate()
@@ -181,14 +196,16 @@ public class PlatformerHero : MonoBehaviour {
         }
 
         // use raycasts to determine if the player is standing on the ground or not
-        if (Physics2D.Raycast(new Vector2(_transform.position.x - 0.1f, _transform.position.y), -Vector2.up, .5f, GroundMask).collider != null
-            || Physics2D.Raycast(new Vector2(_transform.position.x + 0.1f, _transform.position.y), -Vector2.up, .5f, GroundMask).collider != null)
+        if (Physics2D.Raycast(new Vector2(_transform.position.x - 0.1f, _transform.position.y-5f), Vector2.down, 8f, GroundMask).collider != null
+            || Physics2D.Raycast(new Vector2(_transform.position.x + 0.1f, _transform.position.y-5f), Vector2.down, 8f, GroundMask).collider != null)
         {
             // Doesn't work properly (not sure why, something to do with layers)
+	        print("GROUNDED");
             Grounded = true;
         }
         else
         {
+	        print("NOT GROUNDED");
             Grounded = false;
             _rigidbody.AddForce(-Vector3.up * FallVel);
         }

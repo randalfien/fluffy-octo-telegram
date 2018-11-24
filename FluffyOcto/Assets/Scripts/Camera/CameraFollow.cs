@@ -21,7 +21,7 @@ public class CameraFollow : MonoBehaviour
 	{
 		var targetPos = ToFollow.position + Offset;
 		var current = FollowCamera.transform.position;
-		current = Vector3.SmoothDamp(current, targetPos, ref _speed, 1f );
+		current = Vector3.SmoothDamp(current, targetPos, ref _speed, 0.3f );
 		current.z = _startZ;
 		FollowCamera.transform.position = current;
 	}

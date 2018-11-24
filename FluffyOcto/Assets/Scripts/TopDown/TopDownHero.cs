@@ -1,7 +1,7 @@
 ﻿using System;
-using UnityEngine;
-using System.Collections;
 using DG.Tweening;
+using UnityEngine;
+using UnityEngine.Networking;
 
 public class TopDownHero : MonoBehaviour
 {
@@ -79,6 +79,16 @@ public class TopDownHero : MonoBehaviour
 			if (nextItem != null)
 			{
 				Horizont.transform.DOLocalMoveY(nextItem.transform.localPosition.y + 150f, 1f);
+			}
+
+			if (collectible.ClosestThis != null)
+			{
+				collectible.ClosestThis.SetActive(true);
+				var closingSprite = collectible.ClosestThis.GetComponent<SpriteRenderer>();
+				var clr = collectible.OrigClosestThisColor;
+				clr.a = 0;
+				closingSprite.color = clr;
+				closingSprite.DOFade(1, 0.3f);
 			}
 		}
 	}

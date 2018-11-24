@@ -13,7 +13,12 @@ public class TopDownHero : MonoBehaviour
 
 	private SpriteRenderer _renderer;
 
-	public GameObject Horizont;
+
+    public int FramesPerSecond = 12;
+    private float _walkAnimProgress = 0;
+    public Sprite[] WalkSprites;
+
+    public GameObject Horizont;
 	
 	private void Start()
 	{
@@ -23,11 +28,34 @@ public class TopDownHero : MonoBehaviour
 
 	void Update()
 	{
-		horizontal = Input.GetAxisRaw("Horizontal");
-		vertical = Input.GetAxisRaw("Vertical");
-	}
 
-	void FixedUpdate()
+        if(horizontal != 0 || vertical != 0)
+        {
+            _walkAnimProgress += Time.deltaTime * FramesPerSecond;
+        }
+
+        int spriteFrame = Mathf.FloorToInt(_walkAnimProgress) % WalkSprites.Length;
+
+
+        if (horizontal < 0)
+        {
+            _renderer.flipX = true;
+
+        }
+        else if(horizontal > 0)
+        {
+            _renderer.flipX = false;
+        }
+
+
+        horizontal = Input.GetAxisRaw("Horizontal");
+		vertical = Input.GetAxisRaw("Vertical");
+
+        _renderer.sprite = WalkSprites[spriteFrame];
+
+    }
+
+    void FixedUpdate()
 	{
 		if (horizontal != 0 && vertical != 0)
 		{
@@ -36,35 +64,6 @@ public class TopDownHero : MonoBehaviour
 		else
 		{
 			body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
-		}
-
-
-		if (Mathf.Abs(horizontal) > 0.5f && Mathf.Abs(horizontal) > Mathf.Abs(vertical))
-		{
-			if (horizontal > 0)
-			{
-				SetOrientation(270);
-			}
-			else
-			{
-				SetOrientation(90);
-			}
-		}else if (Mathf.Abs(vertical) > 0.5f && Mathf.Abs(vertical) > Mathf.Abs(horizontal))
-		{
-			if (vertical > 0)
-			{
-				SetOrientation(0);
-			}
-			else
-			{
-				SetOrientation(180);
-			}
-		}else if (vertical > 0.5f && Math.Abs(vertical - horizontal) < 0.1f)
-		{
-			SetOrientation(-45);
-		}else if (vertical > 0.5f && Math.Abs(vertical - (-horizontal)) < 0.1f)
-		{
-			SetOrientation(45);
 		}
 	}
 

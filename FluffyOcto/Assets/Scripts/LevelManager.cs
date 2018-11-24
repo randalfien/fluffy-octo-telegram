@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public bool DefaultReal = true;
 
 	public GameObject RealityOnRoot;
 	
@@ -18,8 +17,10 @@ public class LevelManager : MonoBehaviour
 	
 	private void Start()
 	{
+		/*	RealityOffRoot.SetActive(false);
+			RealityOnRoot.SetActive(true);*/
 		Toggle.OnToggled.AddListener(ToggleReality);
-		SetCameras(DefaultReal);
+		SetCameras(false);
 	}
 
 	private void SetCameras(bool realOn)
@@ -59,7 +60,7 @@ public class LevelManager : MonoBehaviour
 		wiper.transform.localPosition = new Vector3(0, 0, -10);
 		wiper.transform.DOMoveX(-400f, 1f).OnComplete(() =>
 		{
-			Toggle.SetEnabled( true );
+			Toggle.gameObject.SetActive( true );
 			SetCameras(realOn);
 		});
 	}
@@ -67,7 +68,7 @@ public class LevelManager : MonoBehaviour
 	private void ToggleReality()
 	{
 		bool realOn = Toggle.Toggled;
-		Toggle.SetEnabled( false );
+		Toggle.gameObject.SetActive( false );
 		SetReal(realOn);
 	}
 }

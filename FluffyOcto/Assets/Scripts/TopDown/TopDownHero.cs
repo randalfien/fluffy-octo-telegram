@@ -5,6 +5,9 @@ using UnityEngine.Networking;
 
 public class TopDownHero : MonoBehaviour
 {
+    public bool Animate = true;
+    public bool FlipX = true;
+
 	private Rigidbody2D body;
 	private float horizontal;
 	private float vertical;
@@ -34,25 +37,22 @@ public class TopDownHero : MonoBehaviour
             _walkAnimProgress += Time.deltaTime * FramesPerSecond;
         }
 
-        int spriteFrame = Mathf.FloorToInt(_walkAnimProgress) % WalkSprites.Length;
 
-
-        if (horizontal < 0)
+        if (FlipX)
         {
-            _renderer.flipX = true;
-
-        }
-        else if(horizontal > 0)
-        {
-            _renderer.flipX = false;
+            if (horizontal < 0) { _renderer.flipX = true; }
+            else if (horizontal > 0) { _renderer.flipX = false; }
         }
 
 
         horizontal = Input.GetAxisRaw("Horizontal");
 		vertical = Input.GetAxisRaw("Vertical");
 
-        _renderer.sprite = WalkSprites[spriteFrame];
-
+        if (Animate)
+        {
+            int spriteFrame = Mathf.FloorToInt(_walkAnimProgress) % WalkSprites.Length;
+            _renderer.sprite = WalkSprites[spriteFrame];
+        }
     }
 
     void FixedUpdate()

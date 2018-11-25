@@ -11,7 +11,7 @@ public class EndSceneShow : MonoBehaviour
 	public GameObject ToShow;
 	public float Delay = 2f;
 	public float KeepOnScreen = 0;
-	
+	public bool kill;
 	void Start ()
 	{
 		ToShow.SetActive(false);
@@ -30,5 +30,9 @@ public class EndSceneShow : MonoBehaviour
 	
 	void Rem () {
 		Destroy(ToShow);
+		if (kill)
+		{
+			Application.Quit();
+		}
 	}
 }

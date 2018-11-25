@@ -132,6 +132,7 @@ MonoBehaviour:
   ToShow: {fileID: 11900194}
   Delay: 26
   KeepOnScreen: 10
+  kill: 1
 --- !u!1 &48326065 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1197038685402688, guid: 2f0c4f883fef36a4d822b59004ab2a4b,
@@ -151,6 +152,7 @@ MonoBehaviour:
   ToShow: {fileID: 48326065}
   Delay: 9
   KeepOnScreen: 3
+  kill: 0
 --- !u!4 &70666682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4028006880384120, guid: 2f0c4f883fef36a4d822b59004ab2a4b,
@@ -845,6 +847,7 @@ MonoBehaviour:
   ToShow: {fileID: 449393271}
   Delay: 2
   KeepOnScreen: 4
+  kill: 0
 --- !u!1 &608128796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,7 +1235,7 @@ Transform:
   m_GameObject: {fileID: 789471646}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9995575, y: 0.9995575, z: 0.9995575}
   m_Children:
   - {fileID: 1824396533}
   - {fileID: 1367668118}
@@ -1413,6 +1416,7 @@ MonoBehaviour:
   ToShow: {fileID: 905081894}
   Delay: 18
   KeepOnScreen: 3
+  kill: 0
 --- !u!1 &948867987 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1197038685402688, guid: 2f0c4f883fef36a4d822b59004ab2a4b,
@@ -1432,6 +1436,7 @@ MonoBehaviour:
   ToShow: {fileID: 948867987}
   Delay: 6
   KeepOnScreen: 3
+  kill: 0
 --- !u!224 &983312762 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224178362618757166, guid: 2f0c4f883fef36a4d822b59004ab2a4b,
@@ -1473,6 +1478,7 @@ MonoBehaviour:
   ToShow: {fileID: 1097201941}
   Delay: 21
   KeepOnScreen: 5
+  kill: 0
 --- !u!4 &1135002823 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4028006880384120, guid: 2f0c4f883fef36a4d822b59004ab2a4b,
@@ -1841,6 +1847,7 @@ MonoBehaviour:
   ToShow: {fileID: 1514597809}
   Delay: 0
   KeepOnScreen: 2
+  kill: 0
 --- !u!1 &1525541748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1954,6 +1961,7 @@ MonoBehaviour:
   ToShow: {fileID: 1593651641}
   Delay: 15
   KeepOnScreen: 3
+  kill: 0
 --- !u!1 &1666546877 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1197038685402688, guid: 2f0c4f883fef36a4d822b59004ab2a4b,
@@ -1973,6 +1981,7 @@ MonoBehaviour:
   ToShow: {fileID: 1666546877}
   Delay: 12
   KeepOnScreen: 3
+  kill: 0
 --- !u!4 &1703637985 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4028006880384120, guid: 2f0c4f883fef36a4d822b59004ab2a4b,

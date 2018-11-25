@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
-using DG.Tweening;
 
 public class PickupWithText : MonoBehaviour {
 
@@ -10,6 +7,8 @@ public class PickupWithText : MonoBehaviour {
     public bool HideOnTrigger = true;
 
     private bool activated;
+
+    public ProgressBar Progress;
 
     private void Start()
     {
@@ -26,7 +25,8 @@ public class PickupWithText : MonoBehaviour {
                 .DOMoveY(ObjectToShow.transform.localPosition.y + 100, 5)
                 .SetDelay(1.5f)
                 .OnComplete(() => ObjectToShow.SetActive(false));
-
+            
+            Progress?.AddProgress(0.2f);
         }
     }
 

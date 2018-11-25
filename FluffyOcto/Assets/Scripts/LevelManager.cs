@@ -37,6 +37,17 @@ public class LevelManager : MonoBehaviour
 	private bool _isStarted;
 	private void Awake()
 	{
+        foreach (var progressBar in Timers)
+        {
+            var finishedText = progressBar.gameObject.GetComponentInChildren<TMPro.TextMeshPro>();
+            if (finishedText)
+            {
+                finishedText.color = Color.clear;
+            }
+
+        }
+
+
         if (Intro)
         {
             Intro.SetActive(true);
@@ -85,6 +96,14 @@ public class LevelManager : MonoBehaviour
 			{
 				allTimersDone = false;
 			}
+            else
+            {
+                var finishedText = progressBar.gameObject.GetComponentInChildren<TMPro.TextMeshPro>();
+                if (finishedText)
+                {
+                    finishedText.color = Color.black;
+                }
+            }
 		}
 
 		if (allTimersDone)

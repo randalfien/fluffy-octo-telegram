@@ -297,7 +297,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 46324937}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07994bfe8b0e4adb97d706de5dea48d5, type: 3}
   m_Name: 
@@ -369,7 +369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &48809734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,6 +1016,8 @@ GameObject:
   - component: {fileID: 166333743}
   - component: {fileID: 166333742}
   - component: {fileID: 166333746}
+  - component: {fileID: 166333748}
+  - component: {fileID: 166333747}
   m_Layer: 9
   m_Name: ech2
   m_TagString: Untagged
@@ -1302,6 +1304,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Progress: {fileID: 1718124247}
   AdvanceBy: 0.25
+--- !u!114 &166333747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 166333735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10bf63c9ea49534884b6ebb92835394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToShow: {fileID: 166333735}
+  HideOnTrigger: 1
+  ChangeActiveOnStart: 0
+  Delay: 1
+--- !u!114 &166333748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 166333735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10bf63c9ea49534884b6ebb92835394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToShow: {fileID: 519774364}
+  HideOnTrigger: 1
+  ChangeActiveOnStart: 0
+  Delay: 0.6
 --- !u!1 &181984520
 GameObject:
   m_ObjectHideFlags: 0
@@ -2177,7 +2209,7 @@ MonoBehaviour:
   ToFollow: {fileID: 1694794487}
   FollowCamera: {fileID: 336622818}
   InitOnPosition: 1
-  Offset: {x: 20, y: 20, z: 0}
+  Offset: {x: 14.4, y: 20, z: 0}
   OffsetFlipX: {x: 0, y: 0, z: 0}
   FlipX: 0
 --- !u!1 &422953717
@@ -3946,7 +3978,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 638169600}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07994bfe8b0e4adb97d706de5dea48d5, type: 3}
   m_Name: 
@@ -5577,7 +5609,7 @@ MonoBehaviour:
   ToFollow: {fileID: 1694794487}
   FollowCamera: {fileID: 1126477247}
   InitOnPosition: 1
-  Offset: {x: 20, y: 20, z: 0}
+  Offset: {x: 17.4, y: 20, z: 0}
   OffsetFlipX: {x: 0, y: 0, z: 0}
   FlipX: 0
 --- !u!1 &1162069941
@@ -5598,6 +5630,8 @@ GameObject:
   - component: {fileID: 1162069949}
   - component: {fileID: 1162069948}
   - component: {fileID: 1162069952}
+  - component: {fileID: 1162069954}
+  - component: {fileID: 1162069953}
   m_Layer: 9
   m_Name: ech1
   m_TagString: Untagged
@@ -5884,6 +5918,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Progress: {fileID: 1718124247}
   AdvanceBy: 0.25
+--- !u!114 &1162069953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1162069941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10bf63c9ea49534884b6ebb92835394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToShow: {fileID: 519774364}
+  HideOnTrigger: 1
+  ChangeActiveOnStart: 0
+  Delay: 0.6
+--- !u!114 &1162069954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1162069941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10bf63c9ea49534884b6ebb92835394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToShow: {fileID: 1162069941}
+  HideOnTrigger: 1
+  ChangeActiveOnStart: 0
+  Delay: 1
 --- !u!1 &1195123956
 GameObject:
   m_ObjectHideFlags: 0
@@ -6057,7 +6121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1262404338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6542,6 +6606,8 @@ GameObject:
   - component: {fileID: 1390466261}
   - component: {fileID: 1390466260}
   - component: {fileID: 1390466264}
+  - component: {fileID: 1390466266}
+  - component: {fileID: 1390466265}
   m_Layer: 9
   m_Name: ech4
   m_TagString: Untagged
@@ -6828,6 +6894,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Progress: {fileID: 1718124247}
   AdvanceBy: 0.25
+--- !u!114 &1390466265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1390466253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10bf63c9ea49534884b6ebb92835394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToShow: {fileID: 1390466253}
+  HideOnTrigger: 1
+  ChangeActiveOnStart: 0
+  Delay: 1
+--- !u!114 &1390466266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1390466253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10bf63c9ea49534884b6ebb92835394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToShow: {fileID: 519774364}
+  HideOnTrigger: 1
+  ChangeActiveOnStart: 0
+  Delay: 0.6
 --- !u!1 &1412511809
 GameObject:
   m_ObjectHideFlags: 0
@@ -7187,6 +7283,8 @@ GameObject:
   - component: {fileID: 1566772754}
   - component: {fileID: 1566772753}
   - component: {fileID: 1566772757}
+  - component: {fileID: 1566772759}
+  - component: {fileID: 1566772758}
   m_Layer: 9
   m_Name: ech3
   m_TagString: Untagged
@@ -7473,6 +7571,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Progress: {fileID: 1718124247}
   AdvanceBy: 0.25
+--- !u!114 &1566772758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1566772746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10bf63c9ea49534884b6ebb92835394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToShow: {fileID: 1566772746}
+  HideOnTrigger: 1
+  ChangeActiveOnStart: 0
+  Delay: 1
+--- !u!114 &1566772759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1566772746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10bf63c9ea49534884b6ebb92835394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToShow: {fileID: 519774364}
+  HideOnTrigger: 1
+  ChangeActiveOnStart: 0
+  Delay: 0.6
 --- !u!1 &1579212970
 GameObject:
   m_ObjectHideFlags: 0
@@ -7890,7 +8018,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: '"Good grades, goor morals, nice allowance."'
+  m_text: '"Good grades, good morals, nice allowance."'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d684f5b2154b7ce4582d27726073ad51, type: 2}
   m_sharedMaterial: {fileID: 21294404047009748, guid: d684f5b2154b7ce4582d27726073ad51,
@@ -8048,7 +8176,7 @@ MonoBehaviour:
   ToFollow: {fileID: 1694794487}
   FollowCamera: {fileID: 1627925108}
   InitOnPosition: 1
-  Offset: {x: 20, y: 15, z: 0}
+  Offset: {x: 16.49, y: 15, z: 0}
   OffsetFlipX: {x: 0, y: 0, z: 0}
   FlipX: 0
 --- !u!1 &1629286779
@@ -8088,6 +8216,7 @@ MonoBehaviour:
   WipeObjectUnReal: {fileID: 841538243}
   RealCamera: {fileID: 854794483}
   UnrealCamera: {fileID: 1448733557}
+  EndDelay: 1
   MusicReal: {fileID: 1629286783}
   MusicUnReal: {fileID: 1629286784}
   MaxVolume: 0.7
@@ -8330,6 +8459,8 @@ GameObject:
   - component: {fileID: 1633003017}
   - component: {fileID: 1633003016}
   - component: {fileID: 1633003020}
+  - component: {fileID: 1633003022}
+  - component: {fileID: 1633003021}
   m_Layer: 9
   m_Name: ech5
   m_TagString: Untagged
@@ -8616,6 +8747,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Progress: {fileID: 1718124247}
   AdvanceBy: 0.25
+--- !u!114 &1633003021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1633003009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10bf63c9ea49534884b6ebb92835394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToShow: {fileID: 1633003009}
+  HideOnTrigger: 1
+  ChangeActiveOnStart: 0
+  Delay: 1
+--- !u!114 &1633003022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1633003009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10bf63c9ea49534884b6ebb92835394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToShow: {fileID: 519774364}
+  HideOnTrigger: 1
+  ChangeActiveOnStart: 0
+  Delay: 0.6
 --- !u!1 &1648431919
 GameObject:
   m_ObjectHideFlags: 0

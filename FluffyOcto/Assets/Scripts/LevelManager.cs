@@ -139,7 +139,7 @@ public class LevelManager : MonoBehaviour
 		wiper.transform.localPosition = new Vector3(0, 0, -10);
 		wiper.transform.DOMoveX(-400f, 1f).OnComplete(() =>
 		{
-			Toggle.gameObject.SetActive( true );
+			Toggle.BanToggle = false;
 			SetCameras(realOn);
 		});
 	}
@@ -149,7 +149,7 @@ public class LevelManager : MonoBehaviour
 		if (_isStarted == false) return;
 		
 		bool realOn = Toggle.Toggled;
-		Toggle.gameObject.SetActive( false );
+		Toggle.BanToggle = true;
 		if (_scheduler)
 		{
 			_scheduler.VisibleLayer = LayerMask.NameToLayer(realOn ? "Scene Real" : "Scene Unreal");

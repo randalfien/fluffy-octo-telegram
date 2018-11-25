@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
-using Microsoft.SqlServer.Server;
+﻿using DG.Tweening;
 using UnityEngine;
 
 public class Lamp : MonoBehaviour
@@ -29,7 +26,9 @@ public class Lamp : MonoBehaviour
 
 	void Update () {
 		if (!_triggered && !Input.GetKey(KeyCode.Space)&& (Input.GetKeyDown(KeyCode.DownArrow)
-		    || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.UpArrow)))
+		                                                   || Input.GetKeyDown(KeyCode.LeftArrow) ||
+		                                                   Input.GetKeyDown(KeyCode.RightArrow) ||
+		                                                   Input.GetKeyDown(KeyCode.UpArrow)))
 		{
 			Trigger();
 		}

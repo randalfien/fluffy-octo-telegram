@@ -238,5 +238,10 @@ public class LevelManager : MonoBehaviour
 			MusicUnReal.DOFade(MaxVolume, FadeInTime);
 		}
 	}
+
+	public void SwitchToReal()
+	{
+		ToggleReality();
+	}
 }
 

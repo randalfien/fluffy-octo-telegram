@@ -96,8 +96,13 @@ public class LevelManager : MonoBehaviour
 		Outro.SetActive(true);
 		var spr = Outro.GetComponent<SpriteRenderer>();
 		spr.color = Color.clear;
-		spr.DOFade(1, 1.5f);
-		Invoke(nameof(SceneEndSwitch),1.8f);
+        spr.DOFade(1, 1.5f);
+
+        bool realOn = Toggle.Toggled;
+       (realOn ? MusicReal : MusicUnReal).DOFade(0, 1.5f)/*.OnComplete(MusicUnReal.Stop)*/;
+
+
+        Invoke(nameof(SceneEndSwitch),1.8f);
 	}
 
 	private void SceneEndSwitch()

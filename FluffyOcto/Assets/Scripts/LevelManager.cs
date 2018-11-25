@@ -137,7 +137,7 @@ public class LevelManager : MonoBehaviour
 		var wiper = realOn ? WipeObjectReal : WipeObjectUnReal;
 		wiper.SetActive(true);
 		wiper.transform.localPosition = new Vector3(0, 0, -10);
-		wiper.transform.DOMoveX(-400f, 1f).OnComplete(() =>
+		wiper.transform.DOMoveX(realOn ? 380 : -400f, 1f).OnComplete(() =>
 		{
 			Toggle.BanToggle = false;
 			SetCameras(realOn);

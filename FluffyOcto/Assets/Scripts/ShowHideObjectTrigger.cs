@@ -11,11 +11,18 @@ public class ShowHideObjectTrigger : MonoBehaviour
     public float Delay = 0;
 
     private bool hit = false;
+
+    private GameObject Text;
+    
     private void Start()
     {
         if (ChangeActiveOnStart)
         {
             ObjectToShow.SetActive(HideOnTrigger);
+        }
+        if (transform.childCount > 0)
+        {
+            Text = transform.GetChild(0).gameObject;
         }
     }
 
@@ -32,8 +39,15 @@ public class ShowHideObjectTrigger : MonoBehaviour
     private void onTriggerAfterDelay()
     {
         SpriteRenderer spriteRenderer = ObjectToShow.GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null) { spriteRenderer.enabled = !HideOnTrigger; }
-        else { ObjectToShow.SetActive(!HideOnTrigger); }
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.enabled = !HideOnTrigger;
+            Text?.SetActive(!HideOnTrigger);
+        }
+        else
+        {
+            ObjectToShow.SetActive(!HideOnTrigger);
+        }
     }
 
 }

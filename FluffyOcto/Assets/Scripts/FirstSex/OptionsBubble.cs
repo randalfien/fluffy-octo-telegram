@@ -29,8 +29,32 @@ public class OptionsBubble : MonoBehaviour
 			NextBubble1.SetActive(false);
 			NextBubble2.SetActive(false);
 		}
+
+		Invoke("ResetColliders",0.5f);
 	}
 
+	private void ResetColliders()
+	{
+		Text1.AddComponent<BoxCollider2D>();
+		var list1 = Text1.AddComponent<EventListener>();
+		list1.OnMouseClick.AddListener(Option1Clicked);
+		
+		Text2.AddComponent<BoxCollider2D>();
+		var list2 = Text2.AddComponent<EventListener>();
+		list2.OnMouseClick.AddListener(Option2Clicked);
+	}
+
+	private void Option1Clicked()
+	{
+		EndOn(true);
+	}
+	private void Option2Clicked()
+	{
+		EndOn(false);
+	}
+	
+	
+	
 	private void SetVisibility()
 	{
 		Arrow1.SetActive(_firstSelected);
@@ -53,38 +77,43 @@ public class OptionsBubble : MonoBehaviour
 			SetVisibility();
 		}
 
-		if ( Input.GetKeyDown(KeyCode.RightArrow))
+		if ( Input.GetKeyDown(KeyCode.RightArrow) ||  Input.GetKeyDown(KeyCode.LeftArrow) )
 		{
-			Progress.AddProgress(0.25f);
-			_ended = true;
-			if (NextBubble1 == null)
+			EndOn(_firstSelected);
+		}
+	}
+
+	private void EndOn(bool isFirst)
+	{
+		Progress.AddProgress(0.25f);
+		_ended = true;
+		if (NextBubble1 == null)
+		{
+			Arrow1.SetActive(false);
+			Arrow2.SetActive(false);
+			if (isFirst)
 			{
-				Arrow1.SetActive(false);
-				Arrow2.SetActive(false);
-				if (_firstSelected)
-				{
-					Text2.SetActive(false);
-				}
-				else
-				{
-					Text1.SetActive(false);
-				}
-				GetComponent<SpriteRenderer>().enabled = false;
-				OnEnd.Invoke();
-				return;
-			}
-			
-			
-			if (_firstSelected)
-			{
-				NextBubble1.SetActive(true);
+				Text2.SetActive(false);
 			}
 			else
 			{
-				NextBubble2.SetActive(true);
+				Text1.SetActive(false);
 			}
-			
-			gameObject.SetActive(false);
+			GetComponent<SpriteRenderer>().enabled = false;
+			OnEnd.Invoke();
+			return;
 		}
+			
+			
+		if (isFirst)
+		{
+			NextBubble1.SetActive(true);
+		}
+		else
+		{
+			NextBubble2.SetActive(true);
+		}
+			
+		gameObject.SetActive(false);
 	}
 }

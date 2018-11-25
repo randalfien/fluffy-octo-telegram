@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Microsoft.SqlServer.Server;
 using UnityEngine;
 
 public class Bubble1 : MonoBehaviour
@@ -14,7 +15,12 @@ public class Bubble1 : MonoBehaviour
 	void Start () {
 		NextBubble.SetActive(false);	
 	}
-	
+
+	private void OnMouseDown()
+	{
+		Trigger();
+	}
+
 	// Update is called once per frame
 	void Update ()
 	{
@@ -30,9 +36,14 @@ public class Bubble1 : MonoBehaviour
              || Input.GetKeyDown(KeyCode.S)
              || Input.GetKeyDown(KeyCode.D))
 		{
-			FindObjectOfType<RealityScheduler>().ScheduleMe(() => NextBubble.SetActive(true),0.8f,gameObject.layer);
-			gameObject.SetActive(false);
-			Progress.AddProgress(0.2f);
+			Trigger();
 		}
+	}
+
+	private void Trigger()
+	{
+		FindObjectOfType<RealityScheduler>().ScheduleMe(() => NextBubble.SetActive(true),0.8f,gameObject.layer);
+		gameObject.SetActive(false);
+		Progress.AddProgress(0.2f);
 	}
 }

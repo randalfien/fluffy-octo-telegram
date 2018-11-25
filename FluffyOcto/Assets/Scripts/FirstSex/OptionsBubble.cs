@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class OptionsBubble : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class OptionsBubble : MonoBehaviour
 	private bool _firstSelected;
 
 	private bool _ended;
+	public UnityEvent OnEnd;
 	// Use this for initialization
 	void Start ()
 	{
@@ -64,6 +66,8 @@ public class OptionsBubble : MonoBehaviour
 				{
 					Text1.SetActive(false);
 				}
+				print("ENDD");
+				OnEnd.Invoke();
 				return;
 			}
 			

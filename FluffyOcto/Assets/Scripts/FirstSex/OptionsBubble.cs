@@ -41,13 +41,13 @@ public class OptionsBubble : MonoBehaviour
 	void Update ()
 	{
 		if (_ended) return;
-		if (_firstSelected && Input.GetKeyDown(KeyCode.DownArrow))
+		if (_firstSelected && Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
 		{
 			_firstSelected = false;
 			SetVisibility();
 		}
 		
-		if (!_firstSelected && Input.GetKeyDown(KeyCode.UpArrow))
+		if (!_firstSelected && Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
 		{
 			_firstSelected = true;
 			SetVisibility();

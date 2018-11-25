@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MoveToLeftEdge : MonoBehaviour
 {
@@ -10,10 +8,5 @@ public class MoveToLeftEdge : MonoBehaviour
 	void Start () {
 		var ratio = Screen.width / (float) Screen.height;
 		transform.localPosition = new Vector3(-54 * ratio + Offset, transform.localPosition.y, transform.localPosition.z);
-	}
-
-	private void Update()
-	{
-		Start();
 	}
 }

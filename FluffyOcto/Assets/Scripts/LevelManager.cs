@@ -39,10 +39,13 @@ public class LevelManager : MonoBehaviour
 			_scheduler.VisibleLayer = LayerMask.NameToLayer("Scene Unreal");
 		}
 		SetCameras(false);
-		
-		MusicUnReal.Play();
-		MusicUnReal.volume = 0;
-		MusicUnReal.DOFade(MaxVolume, FadeInTime);
+
+		if (MusicReal != null && MusicUnReal != null)
+		{
+			MusicUnReal.Play();
+			MusicUnReal.volume = 0;
+			MusicUnReal.DOFade(MaxVolume, FadeInTime);
+		}
 	}
 
 	private void Update()
@@ -62,10 +65,15 @@ public class LevelManager : MonoBehaviour
 
 		if (allTimersDone)
 		{
-			SceneManager.LoadScene(NextSceneName,LoadSceneMode.Single);
+			Invoke(nameof(SceneEnd),1f);
 		}
 	}
 
+	private void SceneEnd()
+	{
+		SceneManager.LoadScene(NextSceneName,LoadSceneMode.Single);
+	}
+	
 	private void SetCameras(bool realOn)
 	{
 		
@@ -119,6 +127,7 @@ public class LevelManager : MonoBehaviour
 		}
 		SetReal(realOn);
 
+		if (MusicReal == null || MusicUnReal == null) return;
 		if (realOn)
 		{
 			MusicUnReal.DOKill();

@@ -35,6 +35,11 @@ public class ProgressBar : MonoBehaviour
 		}
 	}
 
+	public void AddProgress(float amount)
+	{
+		Progress += amount;
+	}
+
 	void Advance()
 	{
 		Progress += 1 / 16f;
@@ -48,12 +53,23 @@ public class ProgressBar : MonoBehaviour
 		}
 	}
 
+	public void CompleteAfterDelay()
+	{
+		FindObjectOfType<RealityScheduler>().ScheduleMe(CompleteProgress, 1.1f, gameObject.layer);
+	}
+
+	private void CompleteProgress()
+	{
+		Progress = 1;
+	}
+
 	
 	void Update()
 	{
 		if (invokedAlready) return;
 		
 		var pos = ActiveSprite.transform.localPosition;
+		Progress = Mathf.Min(1f, Progress);
 		pos.x = _startX + Mathf.Floor(Progress * 16f - 16f) * _step;
 		ActiveSprite.transform.localPosition = pos;
 

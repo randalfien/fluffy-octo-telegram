@@ -16,6 +16,7 @@ public class ProgressBar : MonoBehaviour
 	public UnityEvent Complete;
 	private bool invokedAlready;
 
+	public Transform HookToCamera;
 	// Use this for initialization
 	void Start()
 	{
@@ -55,7 +56,7 @@ public class ProgressBar : MonoBehaviour
 
 	public void CompleteAfterDelay()
 	{
-		FindObjectOfType<RealityScheduler>().ScheduleMe(CompleteProgress, 1.1f, gameObject.layer);
+		FindObjectOfType<RealityScheduler>().ScheduleMe(CompleteProgress, 1.5f, gameObject.layer);
 	}
 
 	private void CompleteProgress()
@@ -66,7 +67,14 @@ public class ProgressBar : MonoBehaviour
 	
 	void Update()
 	{
+		if (HookToCamera != null)
+		{
+			var camPos = HookToCamera.localPosition;
+			transform.localPosition = new Vector3( camPos.x, camPos.y, transform.localPosition.z );
+		}
+		
 		if (invokedAlready) return;
+	
 		
 		var pos = ActiveSprite.transform.localPosition;
 		Progress = Mathf.Min(1f, Progress);

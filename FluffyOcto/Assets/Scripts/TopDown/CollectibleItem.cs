@@ -16,7 +16,7 @@ public class CollectibleItem : MonoBehaviour
 		TextObject.SetActive(false);
         if (NextInactiveOnInit)
         {
-            NextItem.SetActive(false);
+            NextItem?.SetActive(false);
         }
 
         if (ClosestThis != null)

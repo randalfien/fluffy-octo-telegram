@@ -21,10 +21,8 @@ public class ProgressBar : MonoBehaviour
 	void Start()
 	{
 		var ratio = Screen.width / (float) Screen.height;
-		if (ratio > 16 / 9f)
-		{
-			transform.localScale = new Vector3(ratio * 9 / 16f, 1, 1);
-		}
+		transform.localScale = new Vector3(ratio * 9 / 16f, 1, 1);
+		
 
 		_step = (ActiveSprite.transform.localScale.x * 1280f / 10f) / 16f;
 		print(_step);
@@ -34,6 +32,11 @@ public class ProgressBar : MonoBehaviour
 		{
 			FindObjectOfType<RealityScheduler>().ScheduleMe(Advance, Time / 16f, gameObject.layer);
 		}
+	}
+
+	private void fixSize()
+	{
+
 	}
 
 	public void AddProgress(float amount)

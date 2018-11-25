@@ -131,7 +131,7 @@ public class LevelManager : MonoBehaviour
 		if (realOn)
 		{
 			MusicUnReal.DOKill();
-			MusicUnReal.DOFade(0, FadeInTime).OnComplete(MusicUnReal.Stop);
+			MusicUnReal.DOFade(0, FadeInTime)/*.OnComplete(MusicUnReal.Stop)*/;
 			MusicReal.Play();
 			MusicReal.volume = 0;
 			MusicReal.DOFade(MaxVolume, FadeInTime);
@@ -139,7 +139,7 @@ public class LevelManager : MonoBehaviour
 		else
 		{
 			MusicReal.DOKill();
-			MusicReal.DOFade(0, FadeInTime).OnComplete(MusicReal.Stop);
+			MusicReal.DOFade(0, FadeInTime)/*.OnComplete(MusicReal.Stop)*/;
 			MusicUnReal.Play();
 			MusicUnReal.volume = 0;
 			MusicUnReal.DOFade(MaxVolume, FadeInTime);

@@ -6,6 +6,7 @@ public class GraveSceneScriptSad : MonoBehaviour {
 	private bool _waitingForX;
 	public GameObject Dest;
 	public ProgressBar Progress;
+	public AudioSource WaterEffectAudio;
 	void Start () 
 	{
 		Text1.SetActive(false);
@@ -31,6 +32,7 @@ public class GraveSceneScriptSad : MonoBehaviour {
 	
 	private void WaterPlants()
 	{
+		WaterEffectAudio.Play();
 		_waitingForX = false;
 		Text1.SetActive(false);
 		Dest.SetActive(true);

@@ -16,7 +16,7 @@ public class GraveSceneScript : MonoBehaviour
 	private bool isWaitingToWater;
 
 	public ProgressBar Progress;
-	
+	public AudioSource WaterPlantAudio;
 	public bool isHappy;
 	// Use this for initialization
 	void Start () {
@@ -66,6 +66,7 @@ public class GraveSceneScript : MonoBehaviour
 
 	private void WaterPlants()
 	{
+		WaterPlantAudio.Play();
 		TextXToPress.SetActive(false);
 		isWaitingToWater = false;
 		Konev.SetActive(false);

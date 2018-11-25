@@ -397,6 +397,7 @@ Transform:
   - {fileID: 841538244}
   - {fileID: 559205319}
   - {fileID: 2018893869}
+  - {fileID: 2121698774}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -721,7 +722,7 @@ GameObject:
   - component: {fileID: 161088650}
   - component: {fileID: 161088655}
   m_Layer: 8
-  m_Name: rentText
+  m_Name: rentText2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1561,9 +1562,9 @@ Transform:
   - {fileID: 1930209059}
   - {fileID: 186881072}
   - {fileID: 1465406259}
+  - {fileID: 1951615850}
   - {fileID: 1195123957}
   - {fileID: 1379651181}
-  - {fileID: 1951615850}
   m_Father: {fileID: 1262404339}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2227,7 +2228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animate: 1
   FlipX: 1
-  runSpeed: 25
+  runSpeed: 20
   FramesPerSecond: 12
   WalkSprites:
   - {fileID: 21300000, guid: efd46f33b6763014f9ef8a1a343af5f4, type: 3}
@@ -4305,7 +4306,7 @@ GameObject:
   - component: {fileID: 818570840}
   - component: {fileID: 818570839}
   m_Layer: 8
-  m_Name: rentText
+  m_Name: rentText1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5892,7 +5893,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1195123957}
   m_Layer: 8
-  m_Name: Rent1 (1)
+  m_Name: Rent2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5911,7 +5912,7 @@ RectTransform:
   - {fileID: 161088654}
   - {fileID: 2060962162}
   m_Father: {fileID: 223822032}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6516,7 +6517,7 @@ RectTransform:
   - {fileID: 280969469}
   - {fileID: 1663335208}
   m_Father: {fileID: 223822032}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10067,7 +10068,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 48809735}
     m_Modifications:
     - target: {fileID: 4768588051582564, guid: 6ce504bb9562a72439978316a23d4ec1, type: 2}
       propertyPath: m_LocalPosition.x
@@ -10099,7 +10100,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4768588051582564, guid: 6ce504bb9562a72439978316a23d4ec1, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114420875404946440, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
@@ -10148,15 +10149,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4768588051582564, guid: 6ce504bb9562a72439978316a23d4ec1, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.91593
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4768588051582564, guid: 6ce504bb9562a72439978316a23d4ec1, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.91593
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4768588051582564, guid: 6ce504bb9562a72439978316a23d4ec1, type: 2}
       propertyPath: m_LocalScale.z
-      value: 0.91593
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1510914103308496, guid: 6ce504bb9562a72439978316a23d4ec1, type: 2}
       propertyPath: m_Name
@@ -10279,12 +10280,12 @@ RectTransform:
   - {fileID: 818570844}
   - {fileID: 2098719160}
   m_Father: {fileID: 223822032}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.4, y: 523.9}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -4.25, y: 520.52}
+  m_SizeDelta: {x: 87.69, y: 93.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1982391457
 GameObject:
@@ -10750,7 +10751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animate: 1
   FlipX: 1
-  runSpeed: 25
+  runSpeed: 20
   FramesPerSecond: 12
   WalkSprites:
   - {fileID: 21300000, guid: efd46f33b6763014f9ef8a1a343af5f4, type: 3}
@@ -10868,7 +10869,7 @@ GameObject:
   - component: {fileID: 2060962165}
   - component: {fileID: 2060962166}
   m_Layer: 8
-  m_Name: colider
+  m_Name: coliderRent2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10945,7 +10946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectToShow: {fileID: 161088649}
   HideOnTrigger: 1
-  ChangeActiveOnStart: 1
+  ChangeActiveOnStart: 0
   Delay: 3.8
 --- !u!114 &2060962166
 MonoBehaviour:
@@ -11121,7 +11122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectToShow: {fileID: 818570838}
   HideOnTrigger: 1
-  ChangeActiveOnStart: 1
+  ChangeActiveOnStart: 0
   Delay: 3.8
 --- !u!114 &2098719162
 MonoBehaviour:
@@ -11176,3 +11177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Progress: {fileID: 90055796}
   AdvanceBy: 0.05
+--- !u!4 &2121698774 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4768588051582564, guid: 6ce504bb9562a72439978316a23d4ec1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1718124246}

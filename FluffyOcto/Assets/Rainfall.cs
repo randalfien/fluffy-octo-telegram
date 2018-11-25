@@ -13,7 +13,7 @@ public class Rainfall : MonoBehaviour {
 				var tip = Instantiate(tipOrig, transform);
 				tip.transform.localPosition = new Vector3( i/100f * 45 - 10f, j/80f * 45,0)*10 + Random.insideUnitSphere*8;
 				tip.transform.localRotation = Quaternion.Euler(0,0,165f);
-				tip.GetComponent<Bullet>().speed = 10f + Random.Range(0f, 1f);
+				tip.GetComponent<Bullet>().speed = 10f + Random.Range(0f, 5f);
 				tip.GetComponent<Bullet>().maxLife = 10f - Random.Range(0f,2f);
 				tip.GetComponent<FrameAnim>()._AnimProgress = Random.Range(0f,2f);
 			}

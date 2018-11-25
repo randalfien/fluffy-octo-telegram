@@ -17,6 +17,8 @@ public class OptionsBubble : MonoBehaviour
 
 	private bool _ended;
 	public UnityEvent OnEnd;
+	
+	public ProgressBar Progress;
 	// Use this for initialization
 	void Start ()
 	{
@@ -53,6 +55,7 @@ public class OptionsBubble : MonoBehaviour
 
 		if ( Input.GetKeyDown(KeyCode.RightArrow))
 		{
+			Progress.AddProgress(0.25f);
 			_ended = true;
 			if (NextBubble1 == null)
 			{
@@ -66,7 +69,7 @@ public class OptionsBubble : MonoBehaviour
 				{
 					Text1.SetActive(false);
 				}
-				print("ENDD");
+				GetComponent<SpriteRenderer>().enabled = false;
 				OnEnd.Invoke();
 				return;
 			}

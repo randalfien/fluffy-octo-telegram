@@ -9,7 +9,6 @@ public class Bullet : MonoBehaviour
 	void Start ()
 	{
 		_dirVector = transform.up.normalized*100;
-		print(_dirVector);
 	}
 	
 	// Update is called once per frame

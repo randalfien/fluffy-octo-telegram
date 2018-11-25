@@ -16,6 +16,8 @@ public class Lamp : MonoBehaviour
 	public GameObject FirstBubble;
 
 	public bool isReal;
+
+	public ProgressBar Progress;
 	
 	private void Start()
 	{
@@ -43,6 +45,7 @@ public class Lamp : MonoBehaviour
 
 	private void Trigger()
 	{
+		Progress.AddProgress(0.2f);
 		_triggered = true;
 		Background.DOColor(BackgroundColorTarget, 2.5f);
 		GetComponent<SpriteRenderer>().sprite = LampaSpriteOn;

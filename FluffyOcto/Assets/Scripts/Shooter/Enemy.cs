@@ -14,10 +14,8 @@ public class Enemy : MonoBehaviour
 	{
 		if (other.GetComponent<Bullet>() != null)
 		{
-			var blood = Instantiate(BloodPrefab, transform.parent);
-			blood.transform.position = transform.position;
 			Destroy(other.gameObject);
-			Destroy(gameObject);
+			Die();
 		}
 	}
 
@@ -30,5 +28,12 @@ public class Enemy : MonoBehaviour
 			blood.transform.position = transform.position;
 			Destroy(gameObject);
 		}
+	}
+
+	public void Die()
+	{
+		var blood = Instantiate(BloodPrefab, transform.parent);
+		blood.transform.position = transform.position;
+		Destroy(gameObject);
 	}
 }

@@ -18,6 +18,8 @@ public class PlayerShooter : MonoBehaviour
 
 	public float AngleMin = 200;
 	public float AngleMax = 340;
+
+	private bool _shootingEnabled = true;
 	// Use this for initialization
 	void Start () {
 		
@@ -48,12 +50,22 @@ public class PlayerShooter : MonoBehaviour
         }
 
 
-        if (Time.time - _timeLast > ShootTimeMin)
+        if (_shootingEnabled && Time.time - _timeLast > ShootTimeMin)
         {
             Shoot();
         }
 
     }
+
+	public void StopShooting()
+	{
+		FindObjectOfType<RealityScheduler>().ScheduleMe(() => _shootingEnabled = false, 1f, gameObject.layer);
+		var enemies = FindObjectsOfType<Enemy>();
+		foreach (var enemy in enemies)
+		{
+			enemy.Die();
+		}
+	}
 
 	private void Shoot()
 	{

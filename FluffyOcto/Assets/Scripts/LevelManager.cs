@@ -1,5 +1,7 @@
-﻿using DG.Tweening;
+﻿using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -21,6 +23,11 @@ public class LevelManager : MonoBehaviour
 	public AudioSource MusicUnReal;
 	public float MaxVolume = 0.7f;
 	private const float FadeInTime = 2.5f;
+	
+	public List<ProgressBar> Timers = new List<ProgressBar>();
+
+	public string NextSceneName;
+	
 	private void Start()
 	{
 		/*	RealityOffRoot.SetActive(false);
@@ -32,12 +39,41 @@ public class LevelManager : MonoBehaviour
 			_scheduler.VisibleLayer = LayerMask.NameToLayer("Scene Unreal");
 		}
 		SetCameras(false);
-		
-		MusicUnReal.Play();
-		MusicUnReal.volume = 0;
-		MusicUnReal.DOFade(MaxVolume, FadeInTime);
+
+		if (MusicReal != null && MusicUnReal != null)
+		{
+			MusicUnReal.Play();
+			MusicUnReal.volume = 0;
+			MusicUnReal.DOFade(MaxVolume, FadeInTime);
+		}
 	}
 
+	private void Update()
+	{
+		if (Timers == null || Timers.Count == 0)
+		{
+			return;
+		}
+		var allTimersDone = true;
+		foreach (var progressBar in Timers)
+		{
+			if (progressBar.Progress < 1)
+			{
+				allTimersDone = false;
+			}
+		}
+
+		if (allTimersDone)
+		{
+			Invoke(nameof(SceneEnd),1f);
+		}
+	}
+
+	private void SceneEnd()
+	{
+		SceneManager.LoadScene(NextSceneName,LoadSceneMode.Single);
+	}
+	
 	private void SetCameras(bool realOn)
 	{
 		
@@ -91,6 +127,7 @@ public class LevelManager : MonoBehaviour
 		}
 		SetReal(realOn);
 
+		if (MusicReal == null || MusicUnReal == null) return;
 		if (realOn)
 		{
 			MusicUnReal.DOKill();

@@ -17,12 +17,16 @@ public class LevelManager : MonoBehaviour
 	public Camera RealCamera;
 	public Camera UnrealCamera;
 
+    public float EndDelay = 1f;
+
 	private RealityScheduler _scheduler;
 
 	public AudioSource MusicReal;
 	public AudioSource MusicUnReal;
 	public float MaxVolume = 0.7f;
 	private const float FadeInTime = 2.5f;
+
+
 	
 	public List<ProgressBar> Timers = new List<ProgressBar>();
 
@@ -33,10 +37,14 @@ public class LevelManager : MonoBehaviour
 	private bool _isStarted;
 	private void Awake()
 	{
-		Intro.SetActive(true);
-		RealityOffRoot.SetActive(false);
+        if (Intro)
+        {
+            Intro.SetActive(true);
+        }
+
+        RealityOffRoot.SetActive(false);
 		RealityOnRoot.SetActive(false);
-		Invoke(nameof(StartGame),2.5f);
+        Invoke(nameof(StartGame), Intro ? 2.5f : 0f);
 		Toggle.BanToggle = true;
 		Outro?.SetActive(false);
 	}
@@ -45,10 +53,10 @@ public class LevelManager : MonoBehaviour
 	{
 		Toggle.BanToggle = false;
 		_isStarted = true;
-		Intro.SetActive(false);
-		/*	RealityOffRoot.SetActive(false);
+        if (Intro) { Intro.SetActive(false); }
+        /*	RealityOffRoot.SetActive(false);
 			RealityOnRoot.SetActive(true);*/
-		Toggle.OnToggled.AddListener(ToggleReality);
+        Toggle.OnToggled.AddListener(ToggleReality);
 		_scheduler = GetComponent<RealityScheduler>();
 		if (_scheduler)
 		{
@@ -83,7 +91,7 @@ public class LevelManager : MonoBehaviour
 		{
 			Toggle.BanToggle = true;
 			_isStarted = false;
-			Invoke(nameof(SceneEnd),1f);
+			Invoke(nameof(SceneEnd), EndDelay);
 		}
 	}
 
@@ -92,8 +100,13 @@ public class LevelManager : MonoBehaviour
 		Outro.SetActive(true);
 		var spr = Outro.GetComponent<SpriteRenderer>();
 		spr.color = Color.clear;
-		spr.DOFade(1, 1.5f);
-		Invoke(nameof(SceneEndSwitch),1.8f);
+        spr.DOFade(1, 1.5f);
+
+        bool realOn = Toggle.Toggled;
+       (realOn ? MusicReal : MusicUnReal).DOFade(0, 1.5f)/*.OnComplete(MusicUnReal.Stop)*/;
+
+
+        Invoke(nameof(SceneEndSwitch),1.8f);
 	}
 
 	private void SceneEndSwitch()
@@ -137,9 +150,9 @@ public class LevelManager : MonoBehaviour
 		var wiper = realOn ? WipeObjectReal : WipeObjectUnReal;
 		wiper.SetActive(true);
 		wiper.transform.localPosition = new Vector3(0, 0, -10);
-		wiper.transform.DOMoveX(-400f, 1f).OnComplete(() =>
+		wiper.transform.DOMoveX(realOn ? 380 : -400f, 1f).OnComplete(() =>
 		{
-			Toggle.gameObject.SetActive( true );
+			Toggle.BanToggle = false;
 			SetCameras(realOn);
 		});
 	}
@@ -149,7 +162,7 @@ public class LevelManager : MonoBehaviour
 		if (_isStarted == false) return;
 		
 		bool realOn = Toggle.Toggled;
-		Toggle.gameObject.SetActive( false );
+		Toggle.BanToggle = true;
 		if (_scheduler)
 		{
 			_scheduler.VisibleLayer = LayerMask.NameToLayer(realOn ? "Scene Real" : "Scene Unreal");

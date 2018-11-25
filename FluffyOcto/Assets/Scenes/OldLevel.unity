@@ -6583,6 +6583,7 @@ MonoBehaviour:
   WipeObjectUnReal: {fileID: 1647626830}
   RealCamera: {fileID: 1646430647}
   UnrealCamera: {fileID: 194335071}
+  EndDelay: 4
   MusicReal: {fileID: 1666201748}
   MusicUnReal: {fileID: 1666201747}
   MaxVolume: 0.7

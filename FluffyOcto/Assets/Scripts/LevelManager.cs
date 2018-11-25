@@ -17,12 +17,16 @@ public class LevelManager : MonoBehaviour
 	public Camera RealCamera;
 	public Camera UnrealCamera;
 
+    public float EndDelay = 1f;
+
 	private RealityScheduler _scheduler;
 
 	public AudioSource MusicReal;
 	public AudioSource MusicUnReal;
 	public float MaxVolume = 0.7f;
 	private const float FadeInTime = 2.5f;
+
+
 	
 	public List<ProgressBar> Timers = new List<ProgressBar>();
 
@@ -83,7 +87,7 @@ public class LevelManager : MonoBehaviour
 		{
 			Toggle.BanToggle = true;
 			_isStarted = false;
-			Invoke(nameof(SceneEnd),1f);
+			Invoke(nameof(SceneEnd), EndDelay);
 		}
 	}
 

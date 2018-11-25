@@ -1625,22 +1625,22 @@ Prefab:
     - target: {fileID: 212217275494455674, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.r
-      value: 0
+      value: 0.62352943
       objectReference: {fileID: 0}
     - target: {fileID: 212217275494455674, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.20784314
       objectReference: {fileID: 0}
     - target: {fileID: 212217275494455674, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.3019608
       objectReference: {fileID: 0}
     - target: {fileID: 212217275494455674, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.a
-      value: 0.7058824
+      value: 0.84705883
       objectReference: {fileID: 0}
     - target: {fileID: 4768588051582564, guid: 6ce504bb9562a72439978316a23d4ec1, type: 2}
       propertyPath: m_LocalScale.x
@@ -1653,6 +1653,26 @@ Prefab:
     - target: {fileID: 4768588051582564, guid: 6ce504bb9562a72439978316a23d4ec1, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.91593
+      objectReference: {fileID: 0}
+    - target: {fileID: 212241806497485722, guid: 6ce504bb9562a72439978316a23d4ec1,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.6226415
+      objectReference: {fileID: 0}
+    - target: {fileID: 212241806497485722, guid: 6ce504bb9562a72439978316a23d4ec1,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.20852618
+      objectReference: {fileID: 0}
+    - target: {fileID: 212241806497485722, guid: 6ce504bb9562a72439978316a23d4ec1,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.301226
+      objectReference: {fileID: 0}
+    - target: {fileID: 212241806497485722, guid: 6ce504bb9562a72439978316a23d4ec1,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0.40784314
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ce504bb9562a72439978316a23d4ec1, type: 2}

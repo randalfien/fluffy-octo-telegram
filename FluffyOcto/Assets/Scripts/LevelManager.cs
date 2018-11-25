@@ -1,5 +1,7 @@
-﻿using DG.Tweening;
+﻿using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -21,6 +23,11 @@ public class LevelManager : MonoBehaviour
 	public AudioSource MusicUnReal;
 	public float MaxVolume = 0.7f;
 	private const float FadeInTime = 2.5f;
+	
+	public List<ProgressBar> Timers = new List<ProgressBar>();
+
+	public string NextSceneName;
+	
 	private void Start()
 	{
 		/*	RealityOffRoot.SetActive(false);
@@ -36,6 +43,27 @@ public class LevelManager : MonoBehaviour
 		MusicUnReal.Play();
 		MusicUnReal.volume = 0;
 		MusicUnReal.DOFade(MaxVolume, FadeInTime);
+	}
+
+	private void Update()
+	{
+		if (Timers == null || Timers.Count == 0)
+		{
+			return;
+		}
+		var allTimersDone = true;
+		foreach (var progressBar in Timers)
+		{
+			if (progressBar.Progress < 1)
+			{
+				allTimersDone = false;
+			}
+		}
+
+		if (allTimersDone)
+		{
+			SceneManager.LoadScene(NextSceneName,LoadSceneMode.Single);
+		}
 	}
 
 	private void SetCameras(bool realOn)

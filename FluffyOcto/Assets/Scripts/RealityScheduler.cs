@@ -17,24 +17,25 @@ public class TimedItem
 public class RealityScheduler : MonoBehaviour
 {
 	public int VisibleLayer;
-	
+
 	private Dictionary<int, List<TimedItem>> items = new Dictionary<int, List<TimedItem>>();
+	private Dictionary<int, List<TimedItem>> temp = new Dictionary<int, List<TimedItem>>();
 	
 	public void ScheduleMe(UnityAction a, float time, int layer)
 	{
-		if (!items.ContainsKey(layer))
-		{
-			items.Add(layer,new List<TimedItem>());
-		}
-		items[layer].Add(new TimedItem(time, a));
+			if (!temp.ContainsKey(layer))
+			{
+				temp.Add(layer, new List<TimedItem>());
+			}
+			temp[layer].Add(new TimedItem(time, a));
+			print("Scheduling:" + time + " t:" + layer);
+		// SAVE TO TEMP, SO WE CAN MODIFY LIST FROM UPDATE
 	}
 
 	public void Update()
 	{
-		
 		if (items.ContainsKey(VisibleLayer))
-		{
-			
+		{	
 			var itm = items[VisibleLayer];
 			var toDelete = new List<TimedItem>();
 			foreach (var timedItem in itm)
@@ -51,6 +52,22 @@ public class RealityScheduler : MonoBehaviour
 			{
 				itm.Remove(timedItem);
 			}
-		}		
+		}
+		
+		// ADD ALL FROM TEMP
+		foreach (var keyValuePair in temp)
+		{
+			var list = temp[keyValuePair.Key];
+			if (!items.ContainsKey(keyValuePair.Key))
+			{
+				items.Add(keyValuePair.Key, new List<TimedItem>());
+			}
+			
+			for (var i = 0; i < list.Count; i++)
+			{
+				items[keyValuePair.Key].Add(list[i]);	
+			}
+			list.Clear();
+		}
 	}
 }

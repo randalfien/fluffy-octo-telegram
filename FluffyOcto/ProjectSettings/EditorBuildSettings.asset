@@ -6,6 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/ArmyLevel.unity
+    guid: 7e31c50f9455c0544b3b126760ee2836
+  - enabled: 1
+    path: Assets/Scenes/FirstSexLevel.unity
+    guid: d303c4b22f4a3d2429cc900f14ce6d7e
+  - enabled: 1
+    path: Assets/Scenes/OldLevel.unity
+    guid: 6669b3777be4052478a63a9e74913478
+  - enabled: 1
+    path: Assets/Scenes/PrefabScreen.unity
+    guid: 5c61290218528e64881fc00e76ed9e40
+  - enabled: 1
+    path: Assets/Scenes/SchoolLevel.unity
+    guid: 117c7db3d5dec2e448d879803cc7ce0c
+  - enabled: 1
+    path: Assets/Scenes/WorkLevel.unity
+    guid: f1b73bdde1d296945b0bec775d7fbe3e
   m_configObjects: {}

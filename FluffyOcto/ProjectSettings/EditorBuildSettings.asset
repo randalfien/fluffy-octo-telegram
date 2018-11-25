@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WorkLevel.unity
     guid: f1b73bdde1d296945b0bec775d7fbe3e
+  - enabled: 1
+    path: Assets/Scenes/GraveLevel.unity
+    guid: 49e2d8d9d2b36a04ea2d656a4568a0bc
   m_configObjects: {}

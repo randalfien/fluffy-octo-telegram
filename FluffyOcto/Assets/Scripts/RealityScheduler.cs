@@ -28,7 +28,7 @@ public class RealityScheduler : MonoBehaviour
 		}
 		items[layer].Add(new TimedItem(time, a));
 	}
-	
+
 	public void Update()
 	{
 		

@@ -578,17 +578,17 @@ Prefab:
     - target: {fileID: 212217275494455674, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.r
-      value: 0
+      value: 0.10586507
       objectReference: {fileID: 0}
     - target: {fileID: 212217275494455674, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.7243934
+      value: 0.118740015
       objectReference: {fileID: 0}
     - target: {fileID: 212217275494455674, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.9433962
+      value: 0.122641504
       objectReference: {fileID: 0}
     - target: {fileID: 212217275494455674, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
@@ -683,17 +683,17 @@ Prefab:
     - target: {fileID: 212241806497485722, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.r
-      value: 0
+      value: 0.0754717
       objectReference: {fileID: 0}
     - target: {fileID: 212241806497485722, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.50224715
+      value: 0.07013172
       objectReference: {fileID: 0}
     - target: {fileID: 212241806497485722, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.58431375
+      value: 0.07013172
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ce504bb9562a72439978316a23d4ec1, type: 2}
@@ -1092,22 +1092,22 @@ Prefab:
     - target: {fileID: 212217275494455674, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.06097754
+      value: 0.2264151
       objectReference: {fileID: 0}
     - target: {fileID: 212217275494455674, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.41509432
+      value: 0.2264151
       objectReference: {fileID: 0}
     - target: {fileID: 212217275494455674, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.0019579967
+      value: 0.2264151
       objectReference: {fileID: 0}
     - target: {fileID: 212217275494455674, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.a
-      value: 0.92941177
+      value: 0.45490196
       objectReference: {fileID: 0}
     - target: {fileID: 114420875404946440, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
@@ -1117,7 +1117,7 @@ Prefab:
     - target: {fileID: 212241806497485722, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.a
-      value: 0.43529412
+      value: 0.1882353
       objectReference: {fileID: 0}
     - target: {fileID: 114420875404946440, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
@@ -1209,17 +1209,17 @@ Prefab:
     - target: {fileID: 212241806497485722, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.039215688
+      value: 0.103773594
       objectReference: {fileID: 0}
     - target: {fileID: 212241806497485722, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.22745098
+      value: 0.09447313
       objectReference: {fileID: 0}
     - target: {fileID: 212241806497485722, guid: 6ce504bb9562a72439978316a23d4ec1,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.007843138
+      value: 0.09447313
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ce504bb9562a72439978316a23d4ec1, type: 2}
@@ -1513,6 +1513,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   BanToggle: 0
+  Reposition: 1
 --- !u!212 &661112567
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1673,7 +1674,7 @@ Transform:
   m_GameObject: {fileID: 789471646}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -15, z: 0}
-  m_LocalScale: {x: 0.91592914, y: 0.91592914, z: 0.91592914}
+  m_LocalScale: {x: 0.9995575, y: 0.9995575, z: 0.9995575}
   m_Children:
   - {fileID: 661112565}
   - {fileID: 564058071}
@@ -2443,7 +2444,7 @@ Transform:
   m_GameObject: {fileID: 1457439137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.91592914, y: 0.91592914, z: 0.91592914}
+  m_LocalScale: {x: 0.9995575, y: 0.9995575, z: 0.9995575}
   m_Children:
   - {fileID: 2073636735}
   - {fileID: 139782220}

@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ArmyMessage : MonoBehaviour
 {
 	public float Delay;
 	public float Duration = 2f;
+
+	public UnityEvent OnShow;
 	// Use this for initialization
 	void Start ()
 	{
@@ -18,9 +21,11 @@ public class ArmyMessage : MonoBehaviour
 	}
 	
 	void StartMsg () {
+		OnShow.Invoke();
 		var text = GetComponent<TextMeshPro>();
 		text.DOFade(1, 0.1f);
 	}
+	
 	void Rem () {
 		Destroy(gameObject);
 	}

@@ -2801,6 +2801,10 @@ Prefab:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1197038685402688, guid: 2f0c4f883fef36a4d822b59004ab2a4b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f0c4f883fef36a4d822b59004ab2a4b, type: 2}
   m_IsPrefabAsset: 0
@@ -4102,7 +4106,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1224079350}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 54, y: 42.6, z: 0}
+  m_LocalPosition: {x: 46.2, y: 8.8, z: 0}
   m_LocalScale: {x: 1.1501925, y: 1.1501925, z: 1.1501925}
   m_Children: []
   m_Father: {fileID: 271443591}
@@ -5379,7 +5383,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2006239818}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 46.94866, y: 42, z: 0}
+  m_LocalPosition: {x: 40.8, y: 16.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 834084208}

@@ -29,7 +29,7 @@ public class PlayerShooter : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) )
         {
             _angle += RotationSpeed;
             if (_angle > AngleMax)
@@ -39,7 +39,7 @@ public class PlayerShooter : MonoBehaviour
             GunPivot.transform.localRotation = Quaternion.Euler(0, 0, _angle);
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)  )
         {
             _angle -= RotationSpeed;
             if (_angle < AngleMin)

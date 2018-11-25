@@ -1,5 +1,4 @@
-﻿using UnityEditor.Experimental.UIElements;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {

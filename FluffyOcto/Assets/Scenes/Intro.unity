@@ -719,6 +719,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   BanToggle: 0
+  Reposition: 0
 --- !u!212 &661112567
 SpriteRenderer:
   m_ObjectHideFlags: 0

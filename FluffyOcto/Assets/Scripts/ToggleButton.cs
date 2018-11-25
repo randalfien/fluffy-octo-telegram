@@ -15,10 +15,16 @@ public class ToggleButton : MonoBehaviour
 	public bool BanToggle;
 
 	public bool Reposition = true;
+	private float lastTime = 0;
 	
 	private void OnMouseDown()
 	{
 		if (!_shouldSwitch) return;
+		if (Time.time - lastTime < 1.0)
+		{
+			return;
+		}
+		lastTime = Time.time;
 		_toggled = !_toggled;
 		GetComponent<SpriteRenderer>().sprite = _toggled ? SpriteOn : SpriteOff;
 		OnToggled?.Invoke();

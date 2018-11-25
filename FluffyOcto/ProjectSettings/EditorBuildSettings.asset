@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GraveLevel.unity
     guid: 49e2d8d9d2b36a04ea2d656a4568a0bc
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: 3750271ced456ab4fb75250b8812cf66
   m_configObjects: {}

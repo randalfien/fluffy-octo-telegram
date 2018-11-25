@@ -16,7 +16,11 @@ public class LevelManager : MonoBehaviour
 	public Camera UnrealCamera;
 
 	private RealityScheduler _scheduler;
-	
+
+	public AudioSource MusicReal;
+	public AudioSource MusicUnReal;
+	public float MaxVolume = 0.7f;
+	private const float FadeInTime = 2.5f;
 	private void Start()
 	{
 		/*	RealityOffRoot.SetActive(false);
@@ -28,11 +32,14 @@ public class LevelManager : MonoBehaviour
 			_scheduler.VisibleLayer = LayerMask.NameToLayer("Scene Unreal");
 		}
 		SetCameras(false);
+		
+		MusicUnReal.Play();
+		MusicUnReal.volume = 0;
+		MusicUnReal.DOFade(MaxVolume, FadeInTime);
 	}
 
 	private void SetCameras(bool realOn)
 	{
-		
 		
 		RealityOffRoot.SetActive(!realOn);
 		RealityOnRoot.SetActive(realOn);
@@ -83,6 +90,55 @@ public class LevelManager : MonoBehaviour
 			_scheduler.VisibleLayer = LayerMask.NameToLayer(realOn ? "Scene Real" : "Scene Unreal");
 		}
 		SetReal(realOn);
+
+		if (realOn)
+		{
+			MusicUnReal.DOKill();
+			MusicUnReal.DOFade(0, FadeInTime).OnComplete(MusicUnReal.Stop);
+			MusicReal.Play();
+			MusicReal.volume = 0;
+			MusicReal.DOFade(MaxVolume, FadeInTime);
+		}
+		else
+		{
+			MusicReal.DOKill();
+			MusicReal.DOFade(0, FadeInTime).OnComplete(MusicReal.Stop);
+			MusicUnReal.Play();
+			MusicUnReal.volume = 0;
+			MusicUnReal.DOFade(MaxVolume, FadeInTime);
+		}
+	}
+
+	public void PauseMusic(bool real)
+	{
+		if (real)
+		{
+			MusicReal.DOKill();
+			MusicReal.DOFade(0, FadeInTime).OnComplete(MusicReal.Stop);
+		}
+		
+		if (!real)
+		{
+			MusicUnReal.DOKill();
+			MusicUnReal.DOFade(0, FadeInTime).OnComplete(MusicUnReal.Stop);
+		}
+	}
+	
+	public void ResumeMusic(bool real)
+	{
+		if (real)
+		{
+			MusicReal.Play();
+			MusicReal.volume = 0;
+			MusicReal.DOFade(MaxVolume, FadeInTime);
+		}
+		
+		if (!real)
+		{
+			MusicUnReal.Play();
+			MusicUnReal.volume = 0;
+			MusicUnReal.DOFade(MaxVolume, FadeInTime);
+		}
 	}
 }
 

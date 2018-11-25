@@ -2,11 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-
+using TMPro;
 
 public class CollectorAndHorizontMover : MonoBehaviour {
 
     public GameObject Horizont;
+
+    void StartMsg(GameObject other)
+    {
+        var text = other.GetComponent<TextMeshPro>();
+        text.DOFade(1, 0.1f);
+    }
+    void Rem(GameObject o)
+    {
+        Destroy(o);
+    }
+
 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -16,29 +27,19 @@ public class CollectorAndHorizontMover : MonoBehaviour {
         {
             other.gameObject.SetActive(false);
             collectible.TextObject.SetActive(true);
-            var nextItem = collectible.NextItem;
-            if (nextItem != null)
-            {
-                if (collectible.NextInactiveOnInit)
-                {
-                    nextItem.SetActive(true);
-                }
-                Horizont.transform.DOLocalMoveY(nextItem.transform.localPosition.y + collectible.NextItemDistance, 1f);
-            }
-            else
-            {
-                Horizont.transform.DOLocalMoveY(Horizont.transform.localPosition.y + collectible.NextItemDistance, 1f);
-            }
 
-            if (collectible.ClosestThis != null)
+            var text = collectible.TextObject.GetComponent<TextMeshPro>();
+            text.DOFade(1, 0.1f);
+
+            FindObjectOfType<RealityScheduler>().ScheduleMe(() => Destroy(collectible.TextObject), collectible.TextDuration, gameObject.layer);
+
+            var nextItem = collectible.NextItem;
+            if (nextItem && collectible.NextInactiveOnInit)
             {
-                collectible.ClosestThis.SetActive(true);
-                var closingSprite = collectible.ClosestThis.GetComponent<SpriteRenderer>();
-                var clr = collectible.OrigClosestThisColor;
-                clr.a = 0;
-                closingSprite.color = clr;
-                closingSprite.DOFade(1, 0.3f);
+                nextItem.SetActive(true);
             }
+            Horizont.transform.DOLocalMoveY((nextItem ? nextItem : Horizont).transform.localPosition.y + collectible.NextItemDistance, 1f);
+
         }
     }
 

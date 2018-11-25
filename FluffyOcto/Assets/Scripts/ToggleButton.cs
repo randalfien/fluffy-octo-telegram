@@ -21,6 +21,13 @@ public class ToggleButton : MonoBehaviour
 		OnToggled?.Invoke();
 	}
 
+	private void Start()
+	{
+		var ratio = Screen.width / (float) Screen.height;
+		
+		transform.localPosition = new Vector3( 54 * ratio - 22f, transform.localPosition.y, transform.localPosition.z );
+	}
+
 	public void SetEnabled(bool b)
 	{
 		_shouldSwitch = b;

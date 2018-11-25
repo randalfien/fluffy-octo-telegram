@@ -37,10 +37,14 @@ public class LevelManager : MonoBehaviour
 	private bool _isStarted;
 	private void Awake()
 	{
-		Intro.SetActive(true);
-		RealityOffRoot.SetActive(false);
+        if (Intro)
+        {
+            Intro.SetActive(true);
+        }
+
+        RealityOffRoot.SetActive(false);
 		RealityOnRoot.SetActive(false);
-		Invoke(nameof(StartGame),2.5f);
+        Invoke(nameof(StartGame), Intro ? 2.5f : 0f);
 		Toggle.BanToggle = true;
 		Outro?.SetActive(false);
 	}
@@ -49,10 +53,10 @@ public class LevelManager : MonoBehaviour
 	{
 		Toggle.BanToggle = false;
 		_isStarted = true;
-		Intro.SetActive(false);
-		/*	RealityOffRoot.SetActive(false);
+        if (Intro) { Intro.SetActive(false); }
+        /*	RealityOffRoot.SetActive(false);
 			RealityOnRoot.SetActive(true);*/
-		Toggle.OnToggled.AddListener(ToggleReality);
+        Toggle.OnToggled.AddListener(ToggleReality);
 		_scheduler = GetComponent<RealityScheduler>();
 		if (_scheduler)
 		{

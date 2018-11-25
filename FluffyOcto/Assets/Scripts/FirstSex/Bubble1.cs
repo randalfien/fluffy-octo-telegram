@@ -24,7 +24,11 @@ public class Bubble1 : MonoBehaviour
 		if (    Input.GetKeyDown(KeyCode.DownArrow)
 			 || Input.GetKeyDown(KeyCode.LeftArrow) 
 			 || Input.GetKeyDown(KeyCode.RightArrow) 
-			 || Input.GetKeyDown(KeyCode.UpArrow)   )
+			 || Input.GetKeyDown(KeyCode.UpArrow)  
+             || Input.GetKeyDown(KeyCode.W)
+             || Input.GetKeyDown(KeyCode.A)
+             || Input.GetKeyDown(KeyCode.S)
+             || Input.GetKeyDown(KeyCode.D))
 		{
 			FindObjectOfType<RealityScheduler>().ScheduleMe(() => NextBubble.SetActive(true),0.8f,gameObject.layer);
 			gameObject.SetActive(false);

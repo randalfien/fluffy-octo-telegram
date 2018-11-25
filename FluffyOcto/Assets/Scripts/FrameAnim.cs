@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FrameAnim : MonoBehaviour {
 	public Sprite[] Sprites;
-	private float _AnimProgress = 0;
+	[HideInInspector] public float _AnimProgress = 0;
 	public float FramesPerSecond = 12;
 	private SpriteRenderer _renderer;
 	// Use this for initialization

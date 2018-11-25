@@ -27,9 +27,25 @@ public class LevelManager : MonoBehaviour
 	public List<ProgressBar> Timers = new List<ProgressBar>();
 
 	public string NextSceneName;
-	
-	private void Start()
+
+	public GameObject Intro;
+	public GameObject Outro;
+	private bool _isStarted;
+	private void Awake()
 	{
+		Intro.SetActive(true);
+		RealityOffRoot.SetActive(false);
+		RealityOnRoot.SetActive(false);
+		Invoke(nameof(StartGame),2.5f);
+		Toggle.BanToggle = true;
+		Outro?.SetActive(false);
+	}
+	
+	private void StartGame()
+	{
+		Toggle.BanToggle = false;
+		_isStarted = true;
+		Intro.SetActive(false);
 		/*	RealityOffRoot.SetActive(false);
 			RealityOnRoot.SetActive(true);*/
 		Toggle.OnToggled.AddListener(ToggleReality);
@@ -50,7 +66,7 @@ public class LevelManager : MonoBehaviour
 
 	private void Update()
 	{
-		if (Timers == null || Timers.Count == 0)
+		if (Timers == null || Timers.Count == 0 || _isStarted == false)
 		{
 			return;
 		}
@@ -65,11 +81,22 @@ public class LevelManager : MonoBehaviour
 
 		if (allTimersDone)
 		{
+			Toggle.BanToggle = true;
+			_isStarted = false;
 			Invoke(nameof(SceneEnd),1f);
 		}
 	}
 
 	private void SceneEnd()
+	{
+		Outro.SetActive(true);
+		var spr = Outro.GetComponent<SpriteRenderer>();
+		spr.color = Color.clear;
+		spr.DOFade(1, 1.5f);
+		Invoke(nameof(SceneEndSwitch),1.8f);
+	}
+
+	private void SceneEndSwitch()
 	{
 		SceneManager.LoadScene(NextSceneName,LoadSceneMode.Single);
 	}
@@ -119,6 +146,8 @@ public class LevelManager : MonoBehaviour
 
 	private void ToggleReality()
 	{
+		if (_isStarted == false) return;
+		
 		bool realOn = Toggle.Toggled;
 		Toggle.gameObject.SetActive( false );
 		if (_scheduler)

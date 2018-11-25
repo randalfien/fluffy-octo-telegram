@@ -12,6 +12,7 @@ public class ToggleButton : MonoBehaviour
 
 	public UnityEvent OnToggled;
 	private bool _shouldSwitch = true;
+	public bool BanToggle;
 	private void OnMouseDown()
 	{
 		if (!_shouldSwitch) return;
@@ -27,7 +28,7 @@ public class ToggleButton : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (!BanToggle && Input.GetKeyDown(KeyCode.Space))
 		{
 			OnMouseDown();
 		}

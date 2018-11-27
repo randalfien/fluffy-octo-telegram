@@ -1660,8 +1660,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\u201CI always try to buy handcrafted wooden toys, like ones I used to
-    have.\u201D\r"
+  m_text: '"I only buy handcrafted wooden toys, like ones I used to have."'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d684f5b2154b7ce4582d27726073ad51, type: 2}
   m_sharedMaterial: {fileID: 21294404047009748, guid: d684f5b2154b7ce4582d27726073ad51,
@@ -1730,14 +1729,14 @@ MonoBehaviour:
   m_margin: {x: 25.70916, y: -1.1977067, z: 45.512802, w: 19.163288}
   m_textInfo:
     textComponent: {fileID: 0}
-    characterCount: 73
+    characterCount: 63
     spriteCount: 0
-    spaceCount: 13
-    wordCount: 14
+    spaceCount: 11
+    wordCount: 12
     linkCount: 0
     lineCount: 4
     pageCount: 1
-    materialCount: 2
+    materialCount: 1
   m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -2280,8 +2279,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\u201CThe message reads: Sorry, gran, can\u2019t make it again because
-    of work, love you tho\u201D\r\n"
+  m_text: "The message reads:\"Sorry, gran, can\u2019t make it again because of work,
+    love you tho\"\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d684f5b2154b7ce4582d27726073ad51, type: 2}
   m_sharedMaterial: {fileID: 21294404047009748, guid: d684f5b2154b7ce4582d27726073ad51,
@@ -2350,15 +2349,15 @@ MonoBehaviour:
   m_margin: {x: 25.70916, y: -1.1977067, z: 51.78304, w: 15.449324}
   m_textInfo:
     textComponent: {fileID: 0}
-    characterCount: 85
+    characterCount: 83
     spriteCount: 0
-    spaceCount: 15
+    spaceCount: 14
     wordCount: 15
     linkCount: 0
     lineCount: 5
     pageCount: 1
     materialCount: 2
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -2597,7 +2596,7 @@ Transform:
   m_GameObject: {fileID: 718933049}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.99872446, y: 0.99872446, z: 0.99872446}
   m_Children:
   - {fileID: 941672482}
   - {fileID: 465669944}
@@ -4196,7 +4195,7 @@ MonoBehaviour:
     lineCount: 3
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -5266,7 +5265,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: '"I love when they visit me every sunday."
+  m_text: '"I love that they visit me every sunday."
 
 '
   m_isRightToLeft: 0
@@ -5524,7 +5523,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\u201CDid I already take the green one?\n\n\u2026I guess so.\u201D"
+  m_text: "\"Did I already take the green one?\n\n\u2026I guess so.\""
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d684f5b2154b7ce4582d27726073ad51, type: 2}
   m_sharedMaterial: {fileID: 21294404047009748, guid: d684f5b2154b7ce4582d27726073ad51,
@@ -5600,8 +5599,8 @@ MonoBehaviour:
     linkCount: 0
     lineCount: 4
     pageCount: 1
-    materialCount: 2
-  m_havePropertiesChanged: 0
+    materialCount: 1
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -7448,7 +7447,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -7662,7 +7661,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -8283,7 +8282,7 @@ MonoBehaviour:
     lineCount: 3
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -8743,7 +8742,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -9400,7 +9399,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
